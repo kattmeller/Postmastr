@@ -79,21 +79,20 @@ input[type=text], input[type=password] {
   }
 
   input[type=submit] {
-    margin-top: 30px;
-    width: 80%;
+    height: 70px;
+    width: 70%;
     position:relative;
-    background:none;
+    color: black;
+    background-color: #FFFFFF;
     border: solid;
     border-color: black;
     border-width: 3px;
     border-radius: 10px;
     font-size:20px;
     font-weight: 300;
-    margin-left:auto;
-    margin-right:auto;
-    padding:15px;
+    margin:auto;
+    margin-top: 30px;
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    color: black;
   }
 
 /* Landscape layout (with min-width) */
