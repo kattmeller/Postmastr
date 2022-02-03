@@ -95,6 +95,10 @@ input[type=text], input[type=password] {
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
   }
 
+  input.signUp [type=submit] {
+    margin-top: 10px;
+  }
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
