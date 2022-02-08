@@ -51,6 +51,13 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+.signup {
+  position: absolute;
+  font-size: 30px;
+  text-align: center;
+  padding: 180px 50px 180px 50px;
+}
+
 h1 {
     font-size: 45px;
     font-weight: normal;

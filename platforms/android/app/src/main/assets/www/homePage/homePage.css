@@ -23,7 +23,7 @@
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    /*-webkit-user-select: text;*/                /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#fffdfd;
     /*background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
@@ -50,24 +50,14 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
-}
 
 h1 {
     font-size:25px;
     font-weight:normal;
     margin-top:20px;
-    margin-left:142px;
+    text-align: center;
     overflow:visible;
     padding:0px;
-    float: left;
 }
 
 button {
@@ -79,10 +69,9 @@ button {
 
 .logOutButton {
     font-size:15px;
-    margin-top:10px;
-    margin-right:15px;
-    padding:0px;
-    float:right;
+    right: 15px;
+    top: 50px;
+    position: fixed;
 }
 
 .startButton {
@@ -92,6 +81,16 @@ button {
     font-weight: 300;
     margin-top:300px;
     padding:0px;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
 }
 
 
@@ -110,7 +109,6 @@ input[type=text] {
     box-sizing: border-box;
     text-align:center;
   }
-
 
 .event {
     border-radius:4px;
