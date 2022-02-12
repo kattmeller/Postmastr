@@ -19,21 +19,36 @@
 -->
 <html>
   <head>
+    <meta charset="utf-8">
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/index.css">
   </head>
   <body>
     <h1>Sign Up</h1>
     <div class="signup">
       <div id="signuphome">
-        <form action="signUp.js">
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+        <form action="javascript:signup()" method="POST">
+          <label for="username"><b>Username</b></label>
+          <input id="sign-up-user" type="text" placeholder="Enter Username" name="username" required>
 
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input id="sign-up-psw" type="password" placeholder="Enter Password" name="psw" required>
 
           <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <input id="sign-up-psw-repeat" type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
           <input type="submit" value="Sign Up">
 
@@ -45,4 +60,38 @@
       </div>
     </div>
   </body>
+
+  <script type="text/javascript">
+    function signup() {
+      var formData = {
+            username: $("#sign-up-user").val(),
+            password: $("#sign-up-psw").val(),
+            passwordRepeat: $("#sign-up-psw-repeat").val(),
+      };
+      console.log(formData);
+      $.ajax({
+          url: "https://post-mastr-mvp.vercel.app/api/user",
+          type: 'POST',
+          data: {
+            "username": formData.username,
+            "password": formData.password
+          },
+          dataType: "json",
+          success: function (res) {
+          console.log("Im done");
+          window.location.href = "../index.html";
+          },
+          error: function(err) {
+          console.log("oof");
+          alert("Unable to sign up." + err);
+          }
+      });
+
+      window.location.href = '../index.html'
+    }
+
+    function loginResults() {
+        console.log("Im done");
+    }
+  </script>
 <html>
