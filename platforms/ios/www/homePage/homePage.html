@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -39,12 +39,97 @@
     </head>
     <body>
         <h1>POSTMASTR</h1>
-
-        
-        
-        <!--<script src="cordova.js"></script>
-        <script src="js/index.js"></script>-->
+        <div id="directory">
+            <button id="scan-button" onclick="getPhoto(pictureSource)">Scan<br>Packages</button>
+            <button>See<br>Scan<br>History</button>
+        </div>
     </body>
-    <script src="cordova.js"></script>
-    <script src="homePage.js"></script>
+
+    <script src="../cordova.js"></script>
+
+    <script type="text/javascript">
+        var pictureSource;   // picture source
+        var destinationType; // sets the format of returned value
+        // Wait for Cordova to load
+        document.addEventListener('deviceready', onDeviceReady, false);
+
+        // Cordova is ready
+        function onDeviceReady() {
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        }
+
+
+        // Called when a photo is successfully retrieved  
+        function onPhotoDataSuccess(imageData) {
+        // Uncomment to view the base64-encoded image data
+        console.log("  "+imageData);
+
+        // Get image handle
+        //
+        var smallImage = document.getElementById('smallImage');
+
+        // Unhide image elements
+        //
+        smallImage.style.display = 'block';
+
+        // Show the captured photo
+        // The inline CSS rules are used to resize the image
+        //
+        smallImage.src = "data:image/jpeg;base64," + imageData;
+        }
+
+        // Called when a photo is successfully retrieved
+        //
+        function onPhotoURISuccess(imageURI) {
+        // Uncomment to view the image file URI
+        //  console.log("IMAGE PATH: "+imageURI);
+        alert("Image Url : "+imageURI);
+        // Get image handle
+        //
+        var largeImage = document.getElementById('largeImage');
+
+        // Unhide image elements
+        //
+        largeImage.style.display = 'block';
+
+
+
+        // Show the captured photo
+        // The inline CSS rules are used to resize the image
+        //
+        largeImage.src = imageURI;
+        }
+
+        // A button will call this function
+        //
+        function capturePhoto() {
+        // Take picture using device camera and retrieve image as base64-encoded string
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+            destinationType: destinationType.DATA_URL });
+        }
+
+        // A button will call this function
+        //
+        function capturePhotoEdit() {
+        // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+            destinationType: destinationType.DATA_URL });
+        }
+
+        // A button will call this function
+        //
+        function getPhoto(source) {
+        // Retrieve image file location from specified source
+        navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+            destinationType: destinationType.FILE_URI,
+            sourceType: source });
+        }
+
+        // Called if something bad happens.
+        //
+        function onFail(message) {
+        alert('Failed because: ' + message);
+        }
+    </script>
 </html>

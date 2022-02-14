@@ -28,7 +28,8 @@ body {
     /*background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
-    height:100vh;
+    height:100%;
+    overflow: hidden;
     margin:0px;
     padding:0px;
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
@@ -86,7 +87,7 @@ input[type=text], input[type=password] {
   }
 
   input[type=submit] {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 80%;
     position:relative;
     background:none;
@@ -146,10 +147,3 @@ input[type=text], input[type=password] {
 }
 
 
-
-
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
-    }
-}
