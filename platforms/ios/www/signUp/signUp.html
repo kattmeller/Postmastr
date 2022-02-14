@@ -69,7 +69,7 @@
             password: $("#psw").val(),
             passwordRepeat: $("#psw-repeat").val(),
       }
-      
+
       $.ajax({
           url: "https://post-mastr-mvp.vercel.app/api/user",
           type: 'POST',
@@ -85,7 +85,7 @@
           },
           error: function(err) {
           console.log("oof");
-          alert("Unable to sign up." + err);
+          alert("Unable to sign up.");
           }
       });
       window.location.href = '../index.html'
