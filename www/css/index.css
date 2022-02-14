@@ -53,10 +53,13 @@ body {
 }
 
 .signup {
-  position: absolute;
-  font-size: 30px;
-  text-align: center;
-  padding: 180px 50px 180px 50px;
+  position:absolute;             /* position in the center of the screen */
+  left:50%;
+  top:50%;
+  height:50px;                   /* text area height */
+  width:225px;                   /* text area width */
+  text-align:center; 
+  margin:-115px 0px 0px -112px;
 }
 
 h1 {
