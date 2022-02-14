@@ -40,7 +40,7 @@
     <h1>Sign Up</h1>
     <div class="signup">
       <div id="signuphome">
-        <form action="javascript:signup()" method="POST">
+        <form id="sign-up-form" action="javascript:signup()" method="POST">
           <label for="username"><b>Username</b></label>
           <input id="sign-up-user" type="text" placeholder="Enter Username" name="username" required>
 
@@ -50,7 +50,7 @@
           <label for="psw-repeat"><b>Repeat Password</b></label>
           <input id="sign-up-psw-repeat" type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-          <input type="submit" value="Sign Up">
+          <input id="signup" type="submit" value="Sign Up">
 
         </form>
 
@@ -63,12 +63,13 @@
 
   <script type="text/javascript">
     function signup() {
+
       var formData = {
-            username: $("#sign-up-user").val(),
-            password: $("#sign-up-psw").val(),
-            passwordRepeat: $("#sign-up-psw-repeat").val(),
-      };
-      console.log(formData);
+            username: $("#username").val(),
+            password: $("#psw").val(),
+            passwordRepeat: $("#psw-repeat").val(),
+      }
+
       $.ajax({
           url: "https://post-mastr-mvp.vercel.app/api/user",
           type: 'POST',
@@ -78,15 +79,15 @@
           },
           dataType: "json",
           success: function (res) {
-          console.log("Im done");
-          window.location.href = "../index.html";
+            console.log("Im done");
+            alert('Successfully created account');
+            window.location.href = "../index.html";
           },
           error: function(err) {
           console.log("oof");
-          alert("Unable to sign up." + err);
+          alert("Unable to sign up.");
           }
       });
-
       window.location.href = '../index.html'
     }
 
