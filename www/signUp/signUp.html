@@ -71,31 +71,28 @@
       };
 
       if (formData.password == formData.passwordRepeat) {
-        alert ("Passwords match");
+        $.ajax({
+            url: "https://post-mastr-mvp.vercel.app/api/user",
+            type: 'POST',
+            data: {
+              "username": formData.username,
+              "password": formData.password
+            },
+            dataType: "json",
+            success: function (res) {
+              console.log("Im done");
+              alert('Successfully created account');
+              window.location.href = "../index.html";
+            },
+            error: function(err) {
+              console.log("oof");
+              alert("Unable to sign up.");
+            }
+        });
+        window.location.href = '../index.html'
       } else {
-        alert ("Passwords don't match");
+        alert ("Passwords must match");
       }
-      /*
-      $.ajax({
-          url: "https://post-mastr-mvp.vercel.app/api/user",
-          type: 'POST',
-          data: {
-            "username": formData.username,
-            "password": formData.password
-          },
-          dataType: "json",
-          success: function (res) {
-            console.log("Im done");
-            alert('Successfully created account');
-            window.location.href = "../index.html";
-          },
-          error: function(err) {
-            console.log("oof");
-            alert("Unable to sign up.");
-          }
-      });
-      window.location.href = '../index.html'
-      */
-    };
+    }
   </script>
 <html>
