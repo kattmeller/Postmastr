@@ -67,9 +67,15 @@
       var formData = {
             username: $("#username").val(),
             password: $("#psw").val(),
-            passwordRepeat: $("#psw-repeat").val(),
-      }
+            passwordRepeat: $("#psw-repeat").val()
+      };
 
+      if (formData.password == formData.passwordRepeat) {
+        alert ("Passwords match");
+      } else {
+        alert ("Passwords don't match");
+      }
+      /*
       $.ajax({
           url: "https://post-mastr-mvp.vercel.app/api/user",
           type: 'POST',
@@ -84,15 +90,12 @@
             window.location.href = "../index.html";
           },
           error: function(err) {
-          console.log("oof");
-          alert("Unable to sign up.");
+            console.log("oof");
+            alert("Unable to sign up.");
           }
       });
       window.location.href = '../index.html'
-    }
-
-    function loginResults() {
-        console.log("Im done");
-    }
+      */
+    };
   </script>
 <html>
