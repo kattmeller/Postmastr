@@ -59,8 +59,13 @@ body {
   top:50%;
   height:50px;                   /* text area height */
   width:225px;                   /* text area width */
-  text-align:center; 
+  text-align:center;
   margin:-115px 0px 0px -112px;
+}
+
+.scannedPackages {
+  position: absolute;
+  text-align:center;
 }
 
 h1 {
@@ -68,6 +73,10 @@ h1 {
     font-weight: normal;
     margin-top: 25px;
     text-align: center;
+}
+
+button.back {
+  background:url(../img/backIcon.png);
 }
 
 #signinhome {
@@ -149,5 +158,3 @@ input[type=text], input[type=password] {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-
-

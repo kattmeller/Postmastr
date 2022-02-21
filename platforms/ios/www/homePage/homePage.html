@@ -42,7 +42,7 @@
         <div id="directory">
             <button id="back-button" onclick="goHome()">Back</button>
             <button id="scan-button" onclick="capturePhoto()">Scan<br>Packages</button>
-            <button>See<br>Scan<br>History</button>
+            <button id="scan-history-button" onclick="goScannedPackages()">See<br>Scan<br>History</button>
         </div>
     </body>
 
@@ -64,6 +64,9 @@
           window.location.href="../index.html";
         }
 
+        function goScannedPackages() {
+          window.location.href="../scannedPackages/scannedPackages.html";
+        }
 
         // Called when a photo is successfully retrieved
         function onPhotoDataSuccess(imageData) {
