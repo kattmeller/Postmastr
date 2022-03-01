@@ -41,13 +41,13 @@
         <h1>POSTMASTR</h1>
         <div id="directory">
             <button id="back-button" onclick="goHome()">Log Out</button>
-            <button id="scan-button" onclick="capturePhoto()">Scan<br>Packages</button>
+            <button id="scan-button" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Scan<br>Packages</button>
             <button id="scan-history-button" onclick="goScannedPackages()">See<br>Scan<br>History</button>
         </div>
     </body>
 
     <script src="../cordova.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
         var pictureSource;   // picture source
         var destinationType; // sets the format of returned value
@@ -96,6 +96,22 @@
         // Get image handle
         //
         var largeImage = document.getElementById('largeImage');
+
+        $.ajax({
+                url: 'https://post-mastr-mvp.vercel.app/api/imageProcessing',
+                // url: "https://165.227.77.151:3000/user/signIn",
+                type: 'POST',
+                data: imageURI,
+                success: function (res) {
+                    console.log("res");
+                    window.location.href = "../confirmationPage/confirmationPage.html";
+                },
+                error: function(err) {
+                    console.log("oof");
+                    alert("Couldnt send image to server");
+                    window.location.href = "../confirmationPage/confirmationPage.html";
+                }
+            });
 
         // Unhide image elements
         //
