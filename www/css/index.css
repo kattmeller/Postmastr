@@ -24,11 +24,13 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    user-select: text;
     background-color:#fffdfd;
     /*background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
-    height:100vh;
+    height:100%;
+    overflow: hidden;
     margin:0px;
     padding:0px;
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
@@ -51,11 +53,46 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+.signup {
+  position:absolute;             /* position in the center of the screen */
+  left:50%;
+  top:50%;
+  height:50px;                   /* text area height */
+  width:225px;                   /* text area width */
+  text-align:center;
+  margin:-115px 0px 0px -112px;
+}
+
+.scannedPackages {
+  position: absolute;
+  text-align:center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
 h1 {
     font-size: 45px;
     font-weight: normal;
     margin-top: 25px;
     text-align: center;
+}
+
+h1.withBack {
+  margin-right: 44px; /* width of button + button margin */
+}
+
+button.back {
+  background:url(../img/backIcon.png) no-repeat;
+  width:14px;
+  height:25px;
+  border:none;
+  background-color:Transparent;
+  outline:none;
+  margin-left: 30px;
+  margin-top: 40px;
 }
 
 #signinhome {
@@ -79,7 +116,7 @@ input[type=text], input[type=password] {
   }
 
   input[type=submit] {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 80%;
     position:relative;
     background:none;
@@ -136,13 +173,4 @@ input[type=text], input[type=password] {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
-}
-
-
-
-
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
-    }
 }
