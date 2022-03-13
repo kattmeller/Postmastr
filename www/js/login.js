@@ -18,6 +18,7 @@ function login () {
       },
       error: function (err) {
         // notify user visually
+        alert("Didnt work");
         throw err;
       }
   });
