@@ -23,12 +23,14 @@
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    user-select: text;
     background-color:#fffdfd;
     /*background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
-    height:100vh;
+    height:100%;
+    overflow: hidden;
     margin:0px;
     padding:0px;
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
@@ -51,6 +53,86 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+.signup {
+  position:absolute;             /* position in the center of the screen */
+  left:50%;
+  top:50%;
+  height:50px;                   /* text area height */
+  width:225px;                   /* text area width */
+  text-align:center;
+  margin:-115px 0px 0px -112px;
+}
+
+.scannedPackages {
+  position: absolute;
+  text-align:center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: normal;
+    margin-top: 25px;
+    text-align: center;
+}
+
+h1.withBack {
+  margin-right: 44px; /* width of button + button margin */
+}
+
+button.back {
+  background:url(../img/backIcon.png) no-repeat;
+  width:14px;
+  height:25px;
+  border:none;
+  background-color:Transparent;
+  outline:none;
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+#signinhome {
+    margin: auto;
+    margin-top: 50px;
+    justify-content: center;
+    color:#000000;
+    border-radius:4px;
+    padding:10px 0px;
+    text-align: center;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align:center;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 20px;
+  }
+
+  input[type=submit] {
+    margin-top: 20px;
+    width: 80%;
+    position:relative;
+    background:none;
+    border: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
+    font-size:20px;
+    font-weight: 300;
+    margin-left:auto;
+    margin-right:auto;
+    padding:15px;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    color: black;
+  }
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
@@ -60,58 +142,6 @@ body {
                                       /* offset horizontal: half of image width and text area width */
     }
 }
-
-h1 {
-    font-size:45px;
-    font-weight:normal;
-    margin-top:25px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
-}
-
-
-.signinhome {
-    margin:50px;
-    color:#000000;
-    border-radius:4px;
-    padding:10px 0px;
-    text-align:center;
-}
-
-input[type=text] {
-    width: 100%;
-    padding: 8px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    text-align:center;
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-
-  }
-
-  input[type=password] {
-    width: 100%;
-    padding: 8px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    text-align:center;
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-
-  }
-
-  input[type=submit] {
-    width: 100%;
-    position:relative;
-    background:none;
-    border:none;
-    font-size:20px;
-    font-weight: 300;
-    margin-left:auto;
-    margin-right:auto;
-    padding:15px;
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-  }
-
 
 .event {
     border-radius:4px;
@@ -143,13 +173,4 @@ input[type=text] {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
-}
-
-
-
-
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
-    }
 }
