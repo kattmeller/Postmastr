@@ -37,62 +37,16 @@
     <link rel="stylesheet" href="../css/index.css">
   </head>
   <body>
-    <h1>Sign Up</h1>
-    <div class="signup">
-      <div id="signuphome">
-        <form id="sign-up-form" action="javascript:signup()" method="POST">
-          <label for="username"><b>Username</b></label>
-          <input id="sign-up-user" type="text" placeholder="Enter Username" name="username" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input id="sign-up-psw" type="password" placeholder="Enter Password" name="psw" required>
-
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input id="sign-up-psw-repeat" type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-          <input id="signup" type="submit" value="Sign Up">
-
-        </form>
-
-        <form action="../index.html"> <!--Back button-->
-          <input type="submit" value="Return">
-        </form>
-      </div>
+    <div class="header">
+      <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
+      <h1 class="withBack">Scanned Packages</h1>
+    </div>
+    <div class="scannedPackages">
     </div>
   </body>
-
   <script type="text/javascript">
-    function signup() {
-
-      var formData = {
-            username: $("#username").val(),
-            password: $("#psw").val(),
-            passwordRepeat: $("#psw-repeat").val()
-      };
-
-      if (formData.password == formData.passwordRepeat) {
-        $.ajax({
-            url: "https://post-mastr-mvp.vercel.app/api/user",
-            type: 'POST',
-            data: {
-              "username": formData.username,
-              "password": formData.password
-            },
-            dataType: "json",
-            success: function (res) {
-              console.log("Im done");
-              alert('Successfully created account');
-              window.location.href = "../index.html";
-            },
-            error: function(err) {
-              console.log("oof");
-              alert("Unable to sign up.");
-            }
-        });
-        window.location.href = '../index.html'
-      } else {
-        alert ("Passwords must match");
-      }
+    function goBack() {
+      window.location.href="../homePage/homePage.html";
     }
   </script>
 </html>
