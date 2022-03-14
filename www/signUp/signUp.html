@@ -61,22 +61,17 @@
     </div>
   </body>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
   <script type="text/javascript">
     function signup() {
 
-      var formData = {
-            username: $("#username").val(),
-            password: $("#psw").val(),
-            passwordRepeat: $("#psw-repeat").val()
-      };
-
-      if (formData.password == formData.passwordRepeat) {
+      if (document.getElementById('sign-up-psw').value == document.getElementById('sign-up-psw-repeat').value) {
         $.ajax({
-            url: "https://post-mastr-mvp.vercel.app/api/user",
+            url: "http://165.227.77.151:3000/user",
             type: 'POST',
             data: {
-              "username": formData.username,
-              "password": formData.password
+              "username": document.getElementById('sign-up-user').value,
+              "password": document.getElementById('sign-up-psw').value,
             },
             dataType: "json",
             success: function (res) {
@@ -89,7 +84,6 @@
               alert("Unable to sign up.");
             }
         });
-        window.location.href = '../index.html'
       } else {
         alert ("Passwords must match");
       }
