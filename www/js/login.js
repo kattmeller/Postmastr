@@ -18,7 +18,7 @@ function login () {
       },
       error: function (err) {
         // notify user visually
-        alert("Didnt work");
+        alert("Unable to log in. Please check your username and password.");
         throw err;
       }
   });

@@ -46,6 +46,25 @@ alert("Image Url : "+imageURI);
 //
 var largeImage = document.getElementById('largeImage');
 
+// var image_data = new FormData(imageURI);
+
+// $.ajax({
+//     url: 'http://165.227.77.151:3000/imageProcessing',
+//     // url: "https://165.227.77.151:3000/user/signIn",
+//     type: 'POST',
+//     data: image_data,
+//     processData: false,
+//     success: function (res) {
+//         console.log("res");
+//         window.location.href = "../confirmationPage/confirmationPage.html";
+//     },
+//     error: function(err) {
+//         console.log("oof");
+//         alert("Couldnt send image to server");
+//         window.location.href = "../confirmationPage/confirmationPage.html";
+//     }
+// });
+
 // Unhide image elements
 //
 largeImage.style.display = 'block';
