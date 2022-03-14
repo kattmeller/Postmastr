@@ -39,38 +39,4 @@
         <script src="js/index.js"></script>
         <script src="js/login.js"></script>
   </body>
-    <script type="text/javascript">
-        function login() {
-            var formData = {
-                username: $("#username").val(),
-                password: $("#password").val(),
-            };
-            console.log(formData);
-            $.ajax({
-                url: 'https://post-mastr-mvp.vercel.app/api/user/signIn',
-                type: 'POST',
-                data: formData,//{
-                //     "username": $("#Username").val(),
-                //     "password": $("#Password").val()
-                //     // "username": "testUser@example.com",
-                //     // "password": "testPassword1"
-                // },
-                dataType: "json",
-                success: function (res) {
-                console.log("Im done");
-                //window.location.href = "/Users/mattkeller/Desktop/Postmastr/Postmastr/www/homePage/homePage.html";
-                window.location.href = "homePage/homePage.html";
-                },
-                error: function(err) {
-                console.log("oof");
-                alert("Username or password is wrong. Please try again.");
-                }
-            });
-
-        }
-
-        function loginResults() {
-            console.log("Im done");
-        }
-    </script>
 </html>
