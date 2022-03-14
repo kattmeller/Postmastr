@@ -42,9 +42,40 @@
       <h1 class="withBack">Scanned Packages</h1>
     </div>
     <div class="scannedPackages">
+      <hr />
+      <button id="btnScannedPackage0"class="scannedPackage">
+        <p>Full Name</p>
+        <p>#000000</p>
+      </button>
+      <hr />
+      <button id="btnScannedPackage1"class="scannedPackage">
+        <p>Full Name</p>
+        <p>#000001</p>
+      </button>
+      <hr />
+      <button id="btnScannedPackage2"class="scannedPackage">
+        <p>Full Name</p>
+        <p>#000002</p>
+      </button>
+      <hr />
     </div>
   </body>
   <script type="text/javascript">
+    const btn0 = document.getElementById('btnScannedPackage0');
+    const btn1 = document.getElementById('btnScannedPackage1');
+    const btn2 = document.getElementById('btnScannedPackage2');
+    btn0.addEventListener('click', function onClick() {
+      btn0.style.backgroundColor = '#d3d3d3';
+      window.location.href='../confirmationPage/confirmationPage.html';
+      });
+    btn1.addEventListener('click', function onClick() {
+      btn1.style.backgroundColor = '#d3d3d3';
+      window.location.href='../confirmationPage/confirmationPage.html';
+      });
+    btn2.addEventListener('click', function onClick() {
+      btn2.style.backgroundColor = '#d3d3d3';
+      window.location.href='../confirmationPage/confirmationPage.html';
+      });
     function goBack() {
       window.location.href="../homePage/homePage.html";
     }

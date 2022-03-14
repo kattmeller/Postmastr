@@ -34,17 +34,23 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="homePage.css">
+        <link rel="stylesheet" href="../css/index.css">
         <title>Postmastr</title>
     </head>
     <body>
-        <h1>POSTMASTR</h1>
+      <div class="header">
+        <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
+        <h1 class="withBack">POSTMASTR</h1>
+      </div>
 
 
 
         <!--<script src="cordova.js"></script>
         <script src="js/index.js"></script>-->
     </body>
-    <script src="cordova.js"></script>
-    <script src="homePage.js"></script>
+    <script type=text/javascript>
+      function goBack() {
+        window.location.href="../scannedPackages/scannedPackages.html";
+      }
+    </script>
 </html>

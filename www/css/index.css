@@ -66,6 +66,7 @@ body {
 .scannedPackages {
   position: absolute;
   text-align:center;
+  width: 100%;
 }
 
 .header {
@@ -93,7 +94,16 @@ button.back { /* back button on scanned packages screen */
   background-color:Transparent;
   outline:none;
   margin-left: 30px;
-  margin-top: 40px;
+  margin-top: 60px;
+}
+
+button.scannedPackage {
+  display: block;
+  width: 100%;
+  white-space:normal;
+  background-color: transparent;
+  font-size: 16px;
+  border: none;
 }
 
 #signinhome {
