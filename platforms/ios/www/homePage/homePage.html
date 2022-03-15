@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.4.1.js http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.4.1.js https://bundle.run/buffer@6.0.3 http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -52,32 +52,35 @@
     </body>
 
     <script src="../cordova.js"></script>
+    <script src="https://bundle.run/buffer@6.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script src="../pictureFunctions/pictureFunctions.js"></script>
     <script>
-        $('.uploadImage').submit(function(e){
-          e.preventDefault();
-          
-        //   var title = $('#title').val(); 
-        //   var image = $('#imagename').val();
-          var image = $('#imagename').prop('files')[0];
-          var fd = new FormData(document.getElementById("form"));
-            // fd.append('image', image);
-            console.log(e);
-          console.log(image);
-          console.log(fd);
-          $.ajax({
-            url: 'http://165.227.77.151:3000/imageProcessing',
-            type: 'POST',
-            data: fd,
-            // xhrFields: {responseType: "blob"},
-            contentType: 'false',
-            processData: 'false',
-            success: function(response){
-              console.log('image uploaded and form submitted');     
-            }
-        });
-          return false;
-     });
+
+     //    let dropContainer = document.getElementById('scan-button');
+     //    dropContainer.onsubmit = function(e) {
+     //      e.preventDefault();
+     //
+     //    //   var title = $('#title').val();
+     //    //   var image = $('#imagename').val();
+     //      var image = $('#imagename').prop('files')[0];
+     //      var fd = new FormData(document.getElementById("form"));
+     //        // fd.append('image', image);
+     //        console.log(e);
+     //      console.log(image);
+     //      console.log(fd);
+     //      $.ajax({
+     //        url: 'http://165.227.77.151:3000/imageProcessing',
+     //        type: 'POST',
+     //        data: fd,
+     //        // xhrFields: {responseType: "blob"},
+     //        contentType: 'false',
+     //        processData: 'false',
+     //        success: function(response){
+     //          console.log('image uploaded and form submitted');
+     //        }
+     //    });
+     //      return false;
+     // }
      </script>
 </html>

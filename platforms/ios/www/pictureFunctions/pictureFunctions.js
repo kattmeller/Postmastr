@@ -20,25 +20,44 @@ function goScannedPackages() {
 // Called when a photo is successfully retrieved
 function onPhotoDataSuccess(imageData) {
 // Uncomment to view the base64-encoded image data
-console.log("  "+imageData);
+// console.log("  "+imageData);
+  var decodedImg = new buffer.Buffer(imageData, 'base64');
+  var blob = new Blob(decodedImg, {type: 'image/jpeg'});
 
-$.ajax({
-    url: 'http://165.227.77.151:3000/imageProcessing',
-    type: 'POST',
-    data: {
-        "image": imageData,
-    },
-    success: function (res) {
-        console.log("res");
-        alert("Got it");
-        window.location.href = "../confirmationPage/confirmationPage.html";
-    },
-    error: function(err) {
-        console.log("oof");
-        alert("Couldnt send image to server");
-        window.location.href = "../confirmationPage/confirmationPage.html";
-    }
+  console.log(blob);
+
+  var fd = new FormData();
+  fd.append('image', blob);
+  $.ajax({
+   url: 'http://165.227.77.151:3000/imageProcessing',
+   type: 'POST',
+   data: fd,
+   // xhrFields: {responseType: "blob"},
+   contentType: false,
+   processData: false,
+   success: function(response){
+     console.log('image uploaded and form submitted');
+  }
 });
+
+// $.ajax({
+//     url: 'http://165.227.77.151:3000/imageProcessing',
+//     type: 'POST',
+//     data: image_data,
+//     contentType: false,
+//     processData: false,
+//     success: function (res) {
+//         console.log("res");
+//         alert("Got it");
+//         window.location.href = "../confirmationPage/confirmationPage.html";
+//     },
+//     error: function(err) {
+//       console.log(err);
+//       console.log("oof");
+//       alert("Couldnt send image to server");
+//       // window.location.href = "../confirmationPage/confirmationPage.html";
+//     }
+// });
 
 // // Get image handle
 // //
@@ -67,6 +86,8 @@ alert("Image Url : "+imageURI);
 var image_data = new FormData();
 image_data.append('image', imageURI);
 
+console.log(imageURI);
+
 
 
 $.ajax({
@@ -81,9 +102,10 @@ $.ajax({
         window.location.href = "../confirmationPage/confirmationPage.html";
     },
     error: function(err) {
-        console.log("oof");
-        alert("Couldnt send image to server");
-        window.location.href = "../confirmationPage/confirmationPage.html";
+      console.log(err);
+      console.log("oof");
+      alert("Couldnt send image to server");
+      // window.location.href = "../confirmationPage/confirmationPage.html";
     }
 });
 
