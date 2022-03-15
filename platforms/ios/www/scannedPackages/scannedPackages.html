@@ -41,41 +41,48 @@
       <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
       <h1 class="withBack">Scanned Packages</h1>
     </div>
-    <div class="scannedPackages">
+
+    <div id="scanned-packages-list" class="scannedPackages">
+      <button id="btn-load" onclick="loadPackages()">Load Packages</button>
       <hr />
-      <button id="btnScannedPackage0"class="scannedPackage">
+      <button id='btnScannedPackage0' class='scannedPackage'>
         <p>Full Name</p>
         <p>#000000</p>
-      </button>
-      <hr />
-      <button id="btnScannedPackage1"class="scannedPackage">
-        <p>Full Name</p>
-        <p>#000001</p>
-      </button>
-      <hr />
-      <button id="btnScannedPackage2"class="scannedPackage">
-        <p>Full Name</p>
-        <p>#000002</p>
       </button>
       <hr />
     </div>
   </body>
   <script type="text/javascript">
+
     const btn0 = document.getElementById('btnScannedPackage0');
-    const btn1 = document.getElementById('btnScannedPackage1');
-    const btn2 = document.getElementById('btnScannedPackage2');
+    const packList = document.getElementById("scanned-packages-list");
+    const btnLoad = document.getElementById("btn-load");
+
+    function loadPackages() {
+      document.getElementById("scanned-packages-list").innerHTML += "
+        <button class='scannedPackage'>
+          <p>Full Name</p>
+          <p>#000000</p>
+        </button>
+        <hr />
+      "
+    }
+
     btn0.addEventListener('click', function onClick() {
       btn0.style.backgroundColor = '#d3d3d3';
       window.location.href='../packageDetails/packageDetails.html';
-      });
-    btn1.addEventListener('click', function onClick() {
-      btn1.style.backgroundColor = '#d3d3d3';
-      window.location.href='../packageDetails/packageDetails.html';
-      });
-    btn2.addEventListener('click', function onClick() {
-      btn2.style.backgroundColor = '#d3d3d3';
-      window.location.href='../packageDetails/packageDetails.html';
-      });
+    });
+    
+    btnLoad.addEventListener('click', function onClick() {
+      document.getElementById("scanned-packages-list").innerHTML += "
+        <button class='scannedPackage'>
+          <p>Full Name</p>
+          <p>#000000</p>
+        </button>
+        <hr />
+      "
+    });
+
     function goBack() {
       window.location.href="../homePage/homePage.html";
     }

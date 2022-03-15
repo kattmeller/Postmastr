@@ -61,10 +61,18 @@
         }
 
         function goHome() {
+          const btn = document.getElementById('back-button');
+          btn.addEventListener('click', function onClick(){
+            btn.style.backgroundColor = '#d3d3d3';
+          });
           window.location.href="../index.html";
         }
 
         function goScannedPackages() {
+          const btn = document.getElementById('scan-history-button');
+          btn.addEventListener('click', function onClick(){
+            btn.style.backgroundColor = '#d3d3d3';
+          });
           window.location.href="../scannedPackages/scannedPackages.html";
         }
 
@@ -112,6 +120,10 @@
         // A button will call this function
         //
         function capturePhoto() {
+          const btn = document.getElementById('scan-button');
+          btn.addEventListener('click', function onClick(){
+            btn.style.backgroundColor = '#d3d3d3';
+          });
         // Take picture using device camera and retrieve image as base64-encoded string
         navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
             destinationType: destinationType.DATA_URL });

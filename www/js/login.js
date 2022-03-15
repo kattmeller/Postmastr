@@ -8,7 +8,7 @@ function login () {
       },
       dataType: "json",
       success: function (data) {
-        window.location = "homePage/homePage.html";
+        window.location.href = "homePage/homePage.html";
       },
       beforeSend: function() {
         // notify user visually
