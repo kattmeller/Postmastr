@@ -22,59 +22,81 @@ function onPhotoDataSuccess(imageData) {
 // Uncomment to view the base64-encoded image data
 console.log("  "+imageData);
 
-// Get image handle
-//
-var smallImage = document.getElementById('smallImage');
+$.ajax({
+    url: 'http://165.227.77.151:3000/imageProcessing',
+    type: 'POST',
+    data: {
+        "image": imageData,
+    },
+    success: function (res) {
+        console.log("res");
+        alert("Got it");
+        window.location.href = "../confirmationPage/confirmationPage.html";
+    },
+    error: function(err) {
+        console.log("oof");
+        alert("Couldnt send image to server");
+        window.location.href = "../confirmationPage/confirmationPage.html";
+    }
+});
 
-// Unhide image elements
-//
-smallImage.style.display = 'block';
+// // Get image handle
+// //
+// var smallImage = document.getElementById('smallImage');
 
-// Show the captured photo
-// The inline CSS rules are used to resize the image
-//
-smallImage.src = "data:image/jpeg;base64," + imageData;
+// // Unhide image elements
+// //
+// smallImage.style.display = 'block';
+
+// // Show the captured photo
+// // The inline CSS rules are used to resize the image
+// //
+// smallImage.src = "data:image/jpeg;base64," + imageData;
 }
 
 // Called when a photo is successfully retrieved
 //
 function onPhotoURISuccess(imageURI) {
 // Uncomment to view the image file URI
-//  console.log("IMAGE PATH: "+imageURI);
+ console.log("IMAGE PATH: "+imageURI);
 alert("Image Url : "+imageURI);
 // Get image handle
 //
-var largeImage = document.getElementById('largeImage');
+// var largeImage = document.getElementById('largeImage');
 
-// var image_data = new FormData(imageURI);
+var image_data = new FormData();
+image_data.append('image', imageURI);
 
-// $.ajax({
-//     url: 'http://165.227.77.151:3000/imageProcessing',
-//     // url: "https://165.227.77.151:3000/user/signIn",
-//     type: 'POST',
-//     data: image_data,
-//     processData: false,
-//     success: function (res) {
-//         console.log("res");
-//         window.location.href = "../confirmationPage/confirmationPage.html";
-//     },
-//     error: function(err) {
-//         console.log("oof");
-//         alert("Couldnt send image to server");
-//         window.location.href = "../confirmationPage/confirmationPage.html";
-//     }
-// });
+
+
+$.ajax({
+    url: 'http://165.227.77.151:3000/imageProcessing',
+    type: 'POST',
+    data: image_data,
+    contentType: false,
+    processData: false,
+    success: function (res) {
+        console.log("res");
+        alert("Got it");
+        window.location.href = "../confirmationPage/confirmationPage.html";
+    },
+    error: function(err) {
+        console.log("oof");
+        alert("Couldnt send image to server");
+        window.location.href = "../confirmationPage/confirmationPage.html";
+    }
+});
 
 // Unhide image elements
 //
-largeImage.style.display = 'block';
+// largeImage.style.display = 'block';
 
 
 
 // Show the captured photo
 // The inline CSS rules are used to resize the image
 //
-largeImage.src = imageURI;
+// largeImage.src = imageURI;
 }
 
 // A button will call this function
@@ -96,9 +118,10 @@ navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit
 // A button will call this function
 //
 function getPhoto(source) {
+    /////////////////////////////////////////This changed from URISuccess to DataSuccess
 // Retrieve image file location from specified source
-navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-    destinationType: destinationType.FILE_URI,
+navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+    destinationType: destinationType.DATA_URL,
     sourceType: source });
 }
 
