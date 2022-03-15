@@ -111,9 +111,10 @@ var pictureSource;   // picture source
     // Called when a photo is successfully retrieved
     //
     function onPhotoURISuccess(imageURI) {
+      console.log(imageURI);
       // Uncomment to view the image file URI
      //  console.log("IMAGE PATH: "+imageURI);
-      alert("Image Url : "+imageURI);
+      alert("Image Url : "+ imageURI);
       // Get image handle
       //
       var largeImage = document.getElementById('largeImage');
@@ -133,25 +134,28 @@ var pictureSource;   // picture source
     // A button will call this function
     //
     function capturePhoto() {
+      console.log("k");
       // Take picture using device camera and retrieve image as base64-encoded string
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-        destinationType: destinationType.DATA_URL });
+        destinationType: destinationType });
     }
 
     // A button will call this function
     //
     function capturePhotoEdit() {
+      console.log("l");
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL });
+        destinationType: destinationType });
     }
 
     // A button will call this function
     //
     function getPhoto(source) {
+      console.log(source);
       // Retrieve image file location from specified source
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-        destinationType: destinationType.FILE_URI,
+        destinationType: destinationType,
         sourceType: source });
     }
 

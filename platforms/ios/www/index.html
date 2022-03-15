@@ -11,7 +11,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://165.227.77.151:3000/user/signIn data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.6.0.min.js http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -20,10 +21,11 @@
         <title>Postmastr</title>
     </head>
     <body>
-        <h1>Postmastr</h1>
+        <img src="img/red.svg">
         <div class="app">
             <div id="signinhome">
-                <form id="LoginForm" action="homePage/homePage.html" method="POST">
+                <!-- <form id="LoginForm" action="javascript:login()" method="POST"> -->
+                <!-- <form id="LoginForm" onsubmit="login()" method="POST">
                     <input type="text" id="username" name="username" placeholder="Username" required><br><br>
                     <input type="password" id="password" name="password" placeholder="Password" required><br><br>
                     <input id="login" type="submit" value="Login">
@@ -32,13 +34,26 @@
                   <input type="submit" value="Sign Up">
                 </form>
             </div>
+        </div> -->
+        
+  
+                <input type="text" id="username" name="username" placeholder="Username"><br><br>
+                <input type="password" id="password" name="password" placeholder="Password"><br><br>
+                <input id="login" type="submit" value="Login" onclick="login()">
+                <form action="signUp/signUp.html">
+                    <input type="submit" value="Sign Up">
+                  </form>
+            </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+        <script src="js/login.js"></script>
     </body>
+</html>
 
-    <script type="text/javascript">
+
+    <!-- <script type="text/javascript">
         function login() {
             var formData = {
                 username: $("#username").val(),
@@ -47,13 +62,14 @@
             console.log(formData);
             $.ajax({
                 url: 'https://post-mastr-mvp.vercel.app/api/user/signIn',
+                // url: "https://165.227.77.151:3000/user/signIn",
                 type: 'POST',
-                data: formData,//{
-                //     "username": $("#Username").val(),
-                //     "password": $("#Password").val()
+                data: formData
+                    // "username": $("#Username").val(),
+                    // "password": $("#Password").val()
                 //     // "username": "testUser@example.com",
                 //     // "password": "testPassword1"
-                // },
+                ,
                 dataType: "json",
                 success: function (res) {
                 console.log("Im done");
@@ -67,9 +83,4 @@
             });
 
         }
-
-        function loginResults() {
-            console.log("Im done");
-        }
-    </script>
-</html>
+    </script> -->

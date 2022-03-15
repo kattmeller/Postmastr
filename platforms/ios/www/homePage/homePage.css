@@ -36,6 +36,14 @@ body {
     width:100%;
 }
 
+img {
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 15px;
+}
+
 /* Portrait layout (default) */
 .app {
     /*background:url(../img/images.png) no-repeat center top;*/ /* 170px x 200px */

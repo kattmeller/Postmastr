@@ -29,22 +29,54 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.6.0.min.js http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="homePage.css">
+        <link rel="stylesheet" href="confirmationPage.css">
         <title>Postmastr</title>
     </head>
     <body>
         <h1>POSTMASTR</h1>
+        <button id="home" onclick="goHome()">X</button>
+            <form id="confirmationForm" action="javascript:login()" method="POST">
+                <div class="input">
+                    <label for="name">Recipient Name:</label>
+                    <input id="name" name="name" type="text">
+                </div>
+                <div class="input">
+                    <label for="email">Recipient Email:</label>
+                    <input id="email" name="email" type="email">
+                </div>
+                <div class="input">
+                    <label for="name">Date Received:</label>
+                    <input id="date" name="date" type="date">
+                </div>
+                    <input id="submit" name="submit" type="submit" value="Notify Recipient">
+            </form>
+        <div id="buttons">
+            <button id="retake" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Retake Picture</button>
+            <button id="report">Report as Suspicious Package</button>
+        </div>
+        <button id="populate" onclick="populateName()">Populate</button>
 
-        
-        
-        <!--<script src="cordova.js"></script>
-        <script src="js/index.js"></script>-->
     </body>
-    <script src="cordova.js"></script>
-    <script src="homePage.js"></script>
+
+
+    <script src="../cordova.js"></script>
+    <script src="../pictureFunctions/pictureFunctions.js"></script>
+    <script type="text/javascript">
+
+        function populateName() {
+            document.getElementById("name").value = "Matthew Keller";
+            document.getElementById("email").value = "mkeller19@apu.edu";
+            document.getElementById("date").value = new Date().toISOString().slice(0, 10);
+        }
+
+        function goHome() {
+            window.location.href = "../homePage/homePage.html";
+        }
+
+    </script>
 </html>

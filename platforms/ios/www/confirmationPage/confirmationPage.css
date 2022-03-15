@@ -1,0 +1,151 @@
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    /*-webkit-user-select: text;*/                /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#fffdfd;
+    /*background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    width:100%;
+}
+.app {
+    /*background:url(../img/images.png) no-repeat center top;*/ /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+h1 {
+    font-size:25px;
+    font-weight:normal;
+    margin-top:20px;
+    text-align: center;
+    overflow:visible;
+    padding:0px;
+}
+#home {
+    position: absolute;
+    right: 0px;
+    top: 45px;
+    font-size: 25px;
+    background: none;
+    color: black;
+}
+#confirmationForm {
+    display: flex;
+    flex-direction: column;
+}
+#confirmationForm .input {
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#confirmationForm input {
+    height: 30px;
+    font-size: 18px;
+    margin-top: 7px;
+}
+#confirmationForm label {
+    font-size: 20px;
+}
+#confirmationForm #date {
+    background-color: #FFF;
+    color: black;
+    border-bottom-color: rgba(60, 60, 67, 0.6);
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-image-outset: 0;
+border-image-repeat: stretch;
+border-image-slice: 100%;
+border-image-source: none;
+border-image-width: 1;
+border-left-color: rgba(60, 60, 67, 0.6);
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: rgba(60, 60, 67, 0.6);
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: rgba(60, 60, 67, 0.6);
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+border-top-style: solid;
+border-top-width: 1px;
+}
+#confirmationForm #submit {
+    font-size: 20px;
+    font-weight: 300;
+    height: 35px;
+    width: 80%;
+    border: solid black 3px;
+    background: rgb(0, 184, 0);
+    color: black;
+    margin: auto;
+    /* margin: auto;
+    margin-top: 20px;
+    height: 40px;
+    width: 80%;
+    border: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
+    background: green;
+    font-size:20px;
+    font-weight: 300;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    color: black; */
+}
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* .bottom-button {
+    margin: auto;
+    margin-top: 20px;
+    height: 40px;
+    width: 80%;
+    border: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
+    background: #FFF;
+    font-size:20px;
+    font-weight: 300;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    color: black;
+} */
+#retake,
+#report {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: 300;
+    height: 35px;
+    width: 80%;
+    border: solid black 3px;
+    border-radius: 15px;
+    color: black;
+}
+#retake {
+    background: #FFF;
+}
+#report {
+    background: rgb(255, 44, 44);
+}
+#populate {
+    position: absolute;
+    bottom: 20px;
+}
