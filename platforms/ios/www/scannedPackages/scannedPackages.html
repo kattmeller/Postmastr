@@ -43,7 +43,7 @@
     </div>
 
     <div id="scanned-packages-list" class="scannedPackages">
-      <button id="btn-load" onclick="loadPackages()">Load Packages</button>
+      <button id="btn-load">Load Packages</button>
       <hr />
       <button id='btnScannedPackage0' class='scannedPackage'>
         <p>Full Name</p>
@@ -51,40 +51,36 @@
       </button>
       <hr />
     </div>
+    <script type="text/javascript">
+      // package record
+      const btn0 = document.getElementById('btnScannedPackage0');
+      // div to add package record innerHTML to
+      const packList = document.getElementById("scanned-packages-list");
+      // load button
+      const btnLoad = document.getElementById("btn-load");
+
+      // Change color of package record when it is clicked
+      btn0.addEventListener('click', function onClick() {
+        btn0.style.backgroundColor = '#d3d3d3';
+        window.location.href='../packageDetails/packageDetails.html';
+      });
+
+      // Add other package records as innerHTML buttons when 'Load Packages'
+      // button clicked
+      btnLoad.addEventListener('click', function onClick() {
+        document.getElementById("scanned-packages-list").innerHTML += "
+          <button class='scannedPackage'>
+            <p>Full Name</p>
+            <p>#000000</p>
+          </button>
+          <hr />
+        "
+      });
+
+      // return to homepage when back button pressed
+      function goBack() {
+        window.location.href="../homePage/homePage.html";
+      }
+    </script>
   </body>
-  <script type="text/javascript">
-
-    const btn0 = document.getElementById('btnScannedPackage0');
-    const packList = document.getElementById("scanned-packages-list");
-    const btnLoad = document.getElementById("btn-load");
-
-    function loadPackages() {
-      document.getElementById("scanned-packages-list").innerHTML += "
-        <button class='scannedPackage'>
-          <p>Full Name</p>
-          <p>#000000</p>
-        </button>
-        <hr />
-      "
-    }
-
-    btn0.addEventListener('click', function onClick() {
-      btn0.style.backgroundColor = '#d3d3d3';
-      window.location.href='../packageDetails/packageDetails.html';
-    });
-    
-    btnLoad.addEventListener('click', function onClick() {
-      document.getElementById("scanned-packages-list").innerHTML += "
-        <button class='scannedPackage'>
-          <p>Full Name</p>
-          <p>#000000</p>
-        </button>
-        <hr />
-      "
-    });
-
-    function goBack() {
-      window.location.href="../homePage/homePage.html";
-    }
-  </script>
 </html>
