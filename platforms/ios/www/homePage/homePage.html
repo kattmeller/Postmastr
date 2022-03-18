@@ -61,18 +61,12 @@
         }
 
         function goHome() {
-          const btn = document.getElementById('back-button');
-          btn.addEventListener('click', function onClick(){
-            btn.style.backgroundColor = '#d3d3d3';
-          });
+          document.getElementById('back-button').style.backgroundColor = '#d3d3d3';
           window.location.href="../index.html";
         }
 
         function goScannedPackages() {
-          const btn = document.getElementById('scan-history-button');
-          btn.addEventListener('click', function onClick(){
-            btn.style.backgroundColor = '#d3d3d3';
-          });
+          document.getElementById('scan-history-button').style.backgroundColor = '#d3d3d3';
           window.location.href="../scannedPackages/scannedPackages.html";
         }
 
