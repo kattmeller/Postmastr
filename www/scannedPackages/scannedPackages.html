@@ -36,17 +36,23 @@
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/index.css">
   </head>
+
   <body>
     <div class="header">
-      <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
+      <button id="scanned-packages-back-button"
+        class="back"
+        onclick="goBack()"
+      ></button>
       <h1 class="withBack">Scanned Packages</h1>
     </div>
-    <div class="scannedPackages">
+
+    <!--Packages List-->
+    <div id="packages-list" class="scannedPackages">
+      <button id="btn-load" onclick="loadPackages()">Load Packages</button>
+      <hr />
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="cordova.js"></script>
+    <script src="scannedPackages.js"></script>
   </body>
-  <script type="text/javascript">
-    function goBack() {
-      window.location.href="../homePage/homePage.html";
-    }
-  </script>
 </html>

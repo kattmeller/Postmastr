@@ -23,15 +23,15 @@
         <h1>Postmastr</h1>
         <div class="app">
             <div id="signinhome">
-                <form id="LoginForm" action="homePage/homePage.html" method="POST">
-                    <input type="text" id="username" name="username" placeholder="Username" required><br><br>
-                    <input type="password" id="password" name="password" placeholder="Password" required><br><br>
-                    <input id="login" type="submit" value="Login">
-                </form>
+              <form action="homePage/homePage.html" method='POST'>
+                <input type="text" id="username" name="username" placeholder="Username"><br><br>
+                <input type="password" id="password" name="password" placeholder="Password"><br><br>
+                <input id="login" type="submit" value="Login" onclick="login()">
+              </form>
 
-                <form action="signUp/signUp.html"> <!--sign-up page nav button-->
-                  <input class="signUp" type="submit" value="Sign Up">
-                </form>
+              <form action="signUp/signUp.html"> <!--sign-up page nav button-->
+                <input class="signUp" type="submit" value="Sign Up">
+              </form>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
@@ -39,38 +39,4 @@
         <script src="js/index.js"></script>
         <script src="js/login.js"></script>
   </body>
-    <script type="text/javascript">
-        function login() {
-            var formData = {
-                username: $("#username").val(),
-                password: $("#password").val(),
-            };
-            console.log(formData);
-            $.ajax({
-                url: 'https://post-mastr-mvp.vercel.app/api/user/signIn',
-                type: 'POST',
-                data: formData,//{
-                //     "username": $("#Username").val(),
-                //     "password": $("#Password").val()
-                //     // "username": "testUser@example.com",
-                //     // "password": "testPassword1"
-                // },
-                dataType: "json",
-                success: function (res) {
-                console.log("Im done");
-                //window.location.href = "/Users/mattkeller/Desktop/Postmastr/Postmastr/www/homePage/homePage.html";
-                window.location.href = "homePage/homePage.html";
-                },
-                error: function(err) {
-                console.log("oof");
-                alert("Username or password is wrong. Please try again.");
-                }
-            });
-
-        }
-
-        function loginResults() {
-            console.log("Im done");
-        }
-    </script>
 </html>

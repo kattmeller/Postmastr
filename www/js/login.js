@@ -8,7 +8,7 @@ function login () {
       },
       dataType: "json",
       success: function (data) {
-        window.location = "homePage/homePage.html";
+        window.location.href = "homePage/homePage.html";
       },
       beforeSend: function() {
         // notify user visually
@@ -18,6 +18,7 @@ function login () {
       },
       error: function (err) {
         // notify user visually
+        alert("Unable to log in. Please check your username and password.");
         throw err;
       }
   });
