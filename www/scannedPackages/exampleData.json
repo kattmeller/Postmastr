@@ -1,5 +1,4 @@
-{
-  "Packages": [
+data = '
     {
       "recipient": "Andrew Beard",
       "sender": "Michael Beard",
@@ -37,4 +36,4 @@
       "Date Received": "3/12/2022"
     },
   ]
-}
+';
