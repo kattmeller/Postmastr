@@ -24,8 +24,6 @@ function onPhotoDataSuccess(imageData) {
   var decodedImg = new buffer.Buffer(imageData, 'base64');
   var blob = new Blob(decodedImg, {type: 'image/jpeg'});
 
-  console.log(blob);
-
   var fd = new FormData();
   fd.append('image', blob);
   $.ajax({
@@ -39,25 +37,6 @@ function onPhotoDataSuccess(imageData) {
      console.log('image uploaded and form submitted');
   }
 });
-
-// $.ajax({
-//     url: 'http://165.227.77.151:3000/imageProcessing',
-//     type: 'POST',
-//     data: image_data,
-//     contentType: false,
-//     processData: false,
-//     success: function (res) {
-//         console.log("res");
-//         alert("Got it");
-//         window.location.href = "../confirmationPage/confirmationPage.html";
-//     },
-//     error: function(err) {
-//       console.log(err);
-//       console.log("oof");
-//       alert("Couldnt send image to server");
-//       // window.location.href = "../confirmationPage/confirmationPage.html";
-//     }
-// });
 
 // // Get image handle
 // //
@@ -86,10 +65,6 @@ alert("Image Url : "+imageURI);
 var image_data = new FormData();
 image_data.append('image', imageURI);
 
-console.log(imageURI);
-
-
-
 $.ajax({
     url: 'http://165.227.77.151:3000/imageProcessing',
     type: 'POST',
@@ -105,7 +80,7 @@ $.ajax({
       console.log(err);
       console.log("oof");
       alert("Couldnt send image to server");
-      // window.location.href = "../confirmationPage/confirmationPage.html";
+      window.location.href = "../confirmationPage/confirmationPage.html";
     }
 });
 

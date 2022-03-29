@@ -43,11 +43,6 @@
             <button id="back-button" onclick="goHome()">Log Out</button>
             <button id="scan-button" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Scan<br>Packages</button>
             <button id="scan-history-button" onclick="goScannedPackages()">See<br>Scan<br>History</button>
-            <form id="form" class="uploadImage" method="POST">
-                <!-- <input type="text" id="title"> -->
-                <input type="file" name="imagename" id="imagename">
-                <input type="submit" name="submit" value="Submit">
-             </form>
         </div>
     </body>
 
@@ -55,32 +50,4 @@
     <script src="https://bundle.run/buffer@6.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script src="../pictureFunctions/pictureFunctions.js"></script>
-    <script>
-
-     //    let dropContainer = document.getElementById('scan-button');
-     //    dropContainer.onsubmit = function(e) {
-     //      e.preventDefault();
-     //
-     //    //   var title = $('#title').val();
-     //    //   var image = $('#imagename').val();
-     //      var image = $('#imagename').prop('files')[0];
-     //      var fd = new FormData(document.getElementById("form"));
-     //        // fd.append('image', image);
-     //        console.log(e);
-     //      console.log(image);
-     //      console.log(fd);
-     //      $.ajax({
-     //        url: 'http://165.227.77.151:3000/imageProcessing',
-     //        type: 'POST',
-     //        data: fd,
-     //        // xhrFields: {responseType: "blob"},
-     //        contentType: 'false',
-     //        processData: 'false',
-     //        success: function(response){
-     //          console.log('image uploaded and form submitted');
-     //        }
-     //    });
-     //      return false;
-     // }
-     </script>
 </html>
