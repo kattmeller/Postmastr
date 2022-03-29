@@ -31,9 +31,7 @@ document.addEventListener('deviceready', function () {
       alert("There was an error attempting to retreive scanned packages");
       throw err;
     }
-  });
-}, false);
-
+    
 // return to homepage when back button pressed
 function goBack() {
   window.location.href = "../homePage/homePage.html";
