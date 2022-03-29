@@ -1,0 +1,17 @@
+.package-info {
+  border-bottom: 0.5px solid black;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.package-info:nth-child(1) {
+  border-top: 0.5px solid black;
+}
+
+.package-info p {
+  color: black;
+}
+
+.scannedPackages p {
+  color: black;
+}
