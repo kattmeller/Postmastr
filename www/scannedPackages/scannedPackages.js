@@ -18,7 +18,8 @@ function getPackages() {
 // Add package records as innerHTML buttons when 'Load Packages'
 // button clicked
 function loadPackages() {
-  for (let i = 0; i < 3; i++) {
+  const n = 3; // num of example packages
+  for (let i = 0; i < n; i++) {
     document.getElementById("packages-list").innerHTML += `
       <button id="btn-pckg-${i}"
         class="scannedPackage"
@@ -30,11 +31,13 @@ function loadPackages() {
     `
   }
 
-  const btn = document.getElementById("btn-pckg-0");
-  btn.addEventListener("click", () => {
-    btn.style.backgroundColor = "#d3d3d3";
-    window.location.href = "../packageDetails/packageDetails.html";
-  });
+  for (let i = 0; i < n; i++) {
+    const btn = document.getElementById("btn-pckg-" + String(i));
+    btn.addEventListener("click", () => {
+      btn.style.backgroundColor = "#d3d3d3";
+      window.location.href = "../packageDetails/packageDetails.html";
+    });
+  }
 }
 
 // return to homepage when back button pressed
