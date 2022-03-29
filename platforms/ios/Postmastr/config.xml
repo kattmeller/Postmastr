@@ -36,13 +36,15 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-    <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <access origin="*" />
+    <access origin="http://165.227.77.151:3000/user/signIn" />
+    <allow-navigation href="*" />
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
         <string>need camera access to take pictures</string>
     </edit-config>

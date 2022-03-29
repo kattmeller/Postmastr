@@ -15,6 +15,9 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <access origin="*" />
+    <access origin="http://165.227.77.151:3000/user/signIn" />
+    <allow-navigation href="*"/>
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>

@@ -34,23 +34,54 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="confirmationPage.css">
         <title>Postmastr</title>
     </head>
     <body>
-      <div class="header">
-        <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
-        <h1 class="withBack">POSTMASTR</h1>
-      </div>
+        <img src="../img/red.svg">
+        <button id="home" onclick="goHome()">&lt;</button>
+            <form id="confirmationForm" action="javascript:login()" method="POST">
+                <div class="input">
+                    <label for="name">Recipient Name:</label>
+                    <input id="name" name="name" type="text">
+                </div>
+                <div class="input">
+                    <label for="email">Recipient Email:</label>
+                    <input id="email" name="email" type="email">
+                </div>
+                <div class="input">
+                    <label for="name">Date Received:</label>
+                    <input id="date" name="date" type="date">
+                </div>
+                    <input id="submit" name="submit" type="submit" value="Notify Recipient">
+            </form>
+        <div id="buttons">
+            <button id="retake" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Retake Picture</button> 
+            <button id="report" onclick="reportPackage()">Report as Suspicious Package</button>
+        </div>
 
-
-
-        <!--<script src="cordova.js"></script>
-        <script src="js/index.js"></script>-->
     </body>
-    <script type=text/javascript>
-      function goBack() {
-        window.location.href="../scannedPackages/scannedPackages.html";
-      }
+
+
+    <script src="../cordova.js"></script>
+    <script src="../pictureFunctions/pictureFunctions.js"></script>
+    <script type="text/javascript">
+
+        populateName();
+
+        function populateName() {
+            document.getElementById("name").value = "Joseph Tang";
+            document.getElementById("email").value = "jtang18@apu.edu";
+            document.getElementById("date").value = new Date().toISOString().slice(0, 10);
+        }
+
+        function goHome() {
+            window.location.href = "../homePage/homePage.html";
+        }
+
+        function reportPackage() {
+            window.location.href = "../susPackageForm/susPackageForm.html";
+        }
+
     </script>
 </html>

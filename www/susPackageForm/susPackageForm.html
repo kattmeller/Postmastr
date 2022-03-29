@@ -34,20 +34,44 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="homePage.css">
+        <link rel="stylesheet" href="susPackageForm.css">
         <title>Postmastr</title>
     </head>
     <body>
         <img src="../img/red.svg">
-        <div id="directory">
-            <button id="back-button" onclick="goHome()">Log Out</button>
-            <button id="scan-button" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Scan<br>Packages</button>
-            <button id="scan-history-button" onclick="goScannedPackages()">See<br>Scan<br>History</button>
-        </div>
-    </body>
+        <button id="home" onclick="goHome()">&lt;</button>
+        <form id="susPackageForm" action="../homePage/homePage.html" method="POST">
+            <div class="input">
+                <label for="name">Recipient Name:</label>
+                <input id="name" name="name" type="text">
+            </div>
+            <div class="input">
+                <label for="email">Recipient Email:</label>
+                <input id="email" name="email" type="email">
+            </div>
+            <div class="input">
+                <label for="name">Date Received:</label>
+                <input id="date" name="date" type="date">
+            </div>
+            <div class="input">
+                <label for="summary">Reason for Report as Suspicious Package:</label>
+                <textarea id="summary" name="summary" type="text" rows="8"></textarea>
+            </div>           
+             <input id="submit" name="submit" type="submit" value="Report Package">
+        </form>
 
-    <script src="../cordova.js"></script>
-    <script src="https://bundle.run/buffer@6.0.3"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
-    <script src="../pictureFunctions/pictureFunctions.js"></script>
-</html>
+        <script type="text/javascript">
+
+             populateName();
+
+            function populateName() {
+                document.getElementById("name").value = "Joseph Tang";
+                document.getElementById("email").value = "jtang18@apu.edu";
+                document.getElementById("date").value = new Date().toISOString().slice(0, 10);
+            }
+            function goHome() {
+                window.location.href = "../confirmationPage/confirmationPage.html";
+            }
+        </script>
+
+    </body>
