@@ -36,11 +36,8 @@ document.addEventListener('deviceready', function () {
 
   alert("Hello");
 
-  // const mydata = JSON.parse(data);
-  // alert(mydata[0].recipient);
-  // alert(mydata[0].trackingNumber);
-  // alert(mydata[1].recipient);
-  // alert(mydata[1].trackingNumber);
+  const mydata = JSON.parse(data);
+  alert(mydata[0].recipient);
 });
 
 
