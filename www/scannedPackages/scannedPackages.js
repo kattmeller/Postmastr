@@ -33,14 +33,25 @@ document.addEventListener('deviceready', function () {
   //     throw err;
   //   }
   // });
-
-  alert("Hello");
-
-  const mydata = JSON.parse(data);
-  alert(mydata[0].recipient);
 });
 
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
 
+function testData() {
+  readTextFile("exampleData.json", function(text){
+      var data = JSON.parse(text);
+  });
+}
 
 // return to homepage when back button pressed
 function goBack() {

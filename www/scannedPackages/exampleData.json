@@ -1,4 +1,4 @@
-data = '[
+[
   {
     "recipient": "Andrew Beard",
     "sender": "Michael Beard",
@@ -35,4 +35,4 @@ data = '[
     "emailSent": false,
     "Date Received": "3/12/2022"
   },
-]';
+]
