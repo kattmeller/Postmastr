@@ -58,8 +58,8 @@ function onPhotoDataSuccess(imageData) {
 //
 function onPhotoURISuccess(imageURI) {
 // Uncomment to view the image file URI
- console.log("IMAGE PATH: "+imageURI);
-alert("Image Url : "+imageURI);
+ console.log(`IMAGE PATH: ${imageURI}`);
+alert(`Image Url : ${imageURI}`);
 // Get image handle
 //
 // var largeImage = document.getElementById('largeImage');
@@ -74,15 +74,15 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (res) {
-        console.log("res");
+        console.log(res);
         alert("Got it");
-        window.location.href = "../confirmationPage/confirmationPage.html";
+        // window.location.href = "../confirmationPage/confirmationPage.html";
     },
     error: function(err) {
       console.log(err);
       console.log("oof");
       alert("Couldnt send image to server");
-      window.location.href = "../confirmationPage/confirmationPage.html";
+      // window.location.href = "../confirmationPage/confirmationPage.html";
     }
 });
 
@@ -119,7 +119,7 @@ navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit
 function getPhoto(source) {
     /////////////////////////////////////////This changed from URISuccess to DataSuccess
 // Retrieve image file location from specified source
-navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
     destinationType: destinationType.DATA_URL,
     sourceType: source });
 }
