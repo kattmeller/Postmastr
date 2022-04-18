@@ -72,11 +72,6 @@ body {
   margin:-115px 0px 0px -112px;
 }
 
-.scannedPackages {
-  position: absolute;
-  text-align:center;
-}
-
 .header {
   display: flex;
   flex-direction: row;
