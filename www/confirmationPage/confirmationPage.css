@@ -53,7 +53,7 @@ img {
     flex-direction: column;
 }
 #confirmationForm .input {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     padding: 10px;
     display: flex;
     flex-direction: column;

@@ -46,8 +46,16 @@
                     <input id="name" name="name" type="text">
                 </div>
                 <div class="input">
-                    <label for="email">Recipient Email:</label>
-                    <input id="email" name="email" type="email">
+                    <label for="box-num">Box Number:</label>
+                    <input id="box-num" name="box-num" type="number">
+                </div>
+                <div class="input">
+                    <label for="track-num">Tracking Number:</label>
+                    <input id="track-num" name="track-num" type="number">
+                </div>
+                <div class="input">
+                    <label for="carrier">Package Carrier:</label>
+                    <input id="carrier" name="carrier" type="text">
                 </div>
                 <div class="input">
                     <label for="name">Date Received:</label>
@@ -67,11 +75,14 @@
     <script src="../pictureFunctions/pictureFunctions.js"></script>
     <script type="text/javascript">
 
-        populateName();
+        window.onload = populateData();
 
-        function populateName() {
-            document.getElementById("name").value = "Joseph Tang";
-            document.getElementById("email").value = "jtang18@apu.edu";
+
+        function populateData() {
+            var resData = JSON.parse(localStorage.getItem("response"));
+            document.getElementById("name").value = resData.result.message;
+            document.getElementById("carrier").value = resData.result.finalData.carrier;
+            document.getElementById("track-num").value = resData.result.finalData.trackNo;
             document.getElementById("date").value = new Date().toISOString().slice(0, 10);
         }
 
