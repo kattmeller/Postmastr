@@ -80,7 +80,8 @@
 
         function populateData() {
             var resData = JSON.parse(localStorage.getItem("response"));
-            document.getElementById("name").value = resData.result.message;
+            document.getElementById("name").value = resData.result.finalData.matches[0].name;
+            document.getElementById("box-num").value = resData.result.finalData.matches[0].boxNumber;
             document.getElementById("carrier").value = resData.result.finalData.carrier;
             document.getElementById("track-num").value = resData.result.finalData.trackNo;
             document.getElementById("date").value = new Date().toISOString().slice(0, 10);
