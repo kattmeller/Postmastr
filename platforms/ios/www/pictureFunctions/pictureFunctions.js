@@ -20,23 +20,25 @@ function goScannedPackages() {
 // Called when a photo is successfully retrieved
 function onPhotoDataSuccess(imageData) {
 // Uncomment to view the base64-encoded image data
-// console.log("  "+imageData);
-  var decodedImg = new buffer.Buffer(imageData, 'base64');
-  var blob = new Blob(decodedImg, {type: 'image/jpeg'});
+    console.log("  "+imageData);
 
-  var fd = new FormData();
-  fd.append('image', blob);
-  $.ajax({
-   url: 'http://165.227.77.151:3000/imageProcessing',
-   type: 'POST',
-   data: fd,
-   // xhrFields: {responseType: "blob"},
-   contentType: false,
-   processData: false,
-   success: function(response){
-     console.log('image uploaded and form submitted');
-  }
-});
+    window.location.href = "../confirmationPage/confirmationPage.html";
+//   var decodedImg = new buffer.Buffer(imageData, 'base64');
+//   var blob = new Blob(decodedImg, {type: 'image/jpeg'});
+
+//   var fd = new FormData();
+//   fd.append('image', blob);
+//   $.ajax({
+//    url: 'http://165.227.77.151:3000/imageProcessing',
+//    type: 'POST',
+//    data: fd,
+//    // xhrFields: {responseType: "blob"},
+//    contentType: false,
+//    processData: false,
+//    success: function(response){
+//      console.log('image uploaded and form submitted');
+//   }
+// });
 
 // // Get image handle
 // //
@@ -57,7 +59,6 @@ function onPhotoDataSuccess(imageData) {
 function onPhotoURISuccess(imageURI) {
 // Uncomment to view the image file URI
  console.log("IMAGE PATH: "+imageURI);
-alert("Image Url : "+imageURI);
 // Get image handle
 //
 // var largeImage = document.getElementById('largeImage');
@@ -72,15 +73,15 @@ $.ajax({
     contentType: false,
     processData: false,
     success: function (res) {
-        console.log("res");
-        alert("Got it");
+        var data = JSON.stringify(res);
+        console.log(data);
+        localStorage.setItem("response", data);
         window.location.href = "../confirmationPage/confirmationPage.html";
     },
     error: function(err) {
       console.log(err);
-      console.log("oof");
       alert("Couldnt send image to server");
-      window.location.href = "../confirmationPage/confirmationPage.html";
+    //   window.location.href = "../confirmationPage/confirmationPage.html";
     }
 });
 
@@ -117,7 +118,7 @@ navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit
 function getPhoto(source) {
     /////////////////////////////////////////This changed from URISuccess to DataSuccess
 // Retrieve image file location from specified source
-navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
     destinationType: destinationType.DATA_URL,
     sourceType: source });
 }

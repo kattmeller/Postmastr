@@ -37,58 +37,16 @@
     <link rel="stylesheet" href="../css/index.css">
   </head>
   <body>
-    <h1>Sign Up</h1>
-    <div class="signup">
-      <div id="signuphome">
-        <form id="sign-up-form" action="javascript:signup()" method="POST">
-          <label for="username"><b>Username</b></label>
-          <input id="sign-up-user" type="text" placeholder="Enter Username" name="username" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input id="sign-up-psw" type="password" placeholder="Enter Password" name="psw" required>
-
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input id="sign-up-psw-repeat" type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-          <p></p> <!--extra margin for the submit button -->
-
-          <input id="signup" type="submit" value="Sign Up">
-
-        </form>
-
-        <form action="../index.html"> <!--Back button-->
-          <input type="submit" class="signUp" value="Return">
-        </form>
-      </div>
+    <div class="header">
+      <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
+      <h1 class="withBack">Scanned Packages</h1>
+    </div>
+    <div class="scannedPackages">
     </div>
   </body>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
   <script type="text/javascript">
-    function signup() {
-
-      if (document.getElementById('sign-up-psw').value == document.getElementById('sign-up-psw-repeat').value) {
-        $.ajax({
-            url: "http://165.227.77.151:3000/user",
-            type: 'POST',
-            data: {
-              "username": document.getElementById('sign-up-user').value,
-              "password": document.getElementById('sign-up-psw').value,
-            },
-            dataType: "json",
-            success: function (res) {
-              console.log("Im done");
-              alert('Successfully created account');
-              window.location.href = "../index.html";
-            },
-            error: function(err) {
-              console.log("oof");
-              alert("Unable to sign up.");
-            }
-        });
-      } else {
-        alert ("Passwords must match");
-      }
+    function goBack() {
+      window.location.href="../homePage/homePage.html";
     }
   </script>
 </html>

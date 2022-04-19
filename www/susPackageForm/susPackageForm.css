@@ -12,27 +12,6 @@ body {
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     width:100%;
-    overflow: scroll;
-}
-.app {
-    /*background:url(../img/images.png) no-repeat center top;*/ /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
-}
-h1 {
-    font-size:25px;
-    font-weight:normal;
-    margin-top:20px;
-    text-align: center;
-    overflow:visible;
-    padding:0px;
 }
 img {
     width: 50%;
@@ -49,25 +28,25 @@ img {
     background: none;
     color: black;
 }
-#confirmationForm {
+#susPackageForm {
     display: flex;
     flex-direction: column;
 }
-#confirmationForm .input {
-    margin-bottom: 15px;
+#susPackageForm .input {
+    margin-bottom: 20px;
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
-#confirmationForm input {
+#susPackageForm input {
     height: 30px;
     font-size: 18px;
     margin-top: 7px;
 }
-#confirmationForm label {
+#susPackageForm label {
     font-size: 20px;
 }
-#confirmationForm #date {
+#susPackageForm #date {
     background-color: #FFF;
     color: black;
     border-bottom-color: rgba(60, 60, 67, 0.6);
@@ -92,7 +71,12 @@ border-top-right-radius: 5px;
 border-top-style: solid;
 border-top-width: 1px;
 }
-#confirmationForm #submit {
+
+/* #susPackageForm #summary {
+    height: 400px;
+    overflow-wrap: normal;
+} */
+#susPackageForm #submit {
     font-size: 20px;
     font-weight: 300;
     height: 35px;
@@ -114,46 +98,4 @@ border-top-width: 1px;
     font-weight: 300;
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     color: black; */
-}
-#buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-/* .bottom-button {
-    margin: auto;
-    margin-top: 20px;
-    height: 40px;
-    width: 80%;
-    border: solid;
-    border-color: black;
-    border-width: 3px;
-    border-radius: 10px;
-    background: #FFF;
-    font-size:20px;
-    font-weight: 300;
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    color: black;
-} */
-#retake,
-#report {
-    margin-top: 25px;
-    font-size: 20px;
-    font-weight: 300;
-    height: 35px;
-    width: 80%;
-    border: solid black 3px;
-    border-radius: 15px;
-    color: black;
-}
-#retake {
-    background: #FFF;
-}
-#report {
-    background: rgb(255, 44, 44);
-}
-#populate {
-    position: absolute;
-    bottom: 20px;
 }

@@ -75,6 +75,7 @@ body {
 .scannedPackages {
   position: absolute;
   text-align:center;
+  width: 100%;
 }
 
 .header {
@@ -89,11 +90,12 @@ h1 {
     text-align: center;
 }
 
-h1.withBack {
+h1.withBack { /* header on scanned packages screen adjusted to compensate for
+                back button */
   margin-right: 44px; /* width of button + button margin */
 }
 
-button.back {
+button.back { /* back button on scanned packages screen */
   background:url(../img/backIcon.png) no-repeat;
   width:14px;
   height:25px;
@@ -101,7 +103,16 @@ button.back {
   background-color:Transparent;
   outline:none;
   margin-left: 30px;
-  margin-top: 40px;
+  margin-top: 60px;
+}
+
+button.scannedPackage {
+  display: block;
+  width: 100%;
+  white-space:normal;
+  background-color: transparent;
+  font-size: 16px;
+  border: none;
 }
 
 #signinhome {
@@ -115,14 +126,14 @@ button.back {
 }
 
 input[type=text], input[type=password] {
-    width: 100%;
-    padding: 8px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    text-align:center;
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    font-size: 20px;
-  }
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  text-align:center;
+  font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 20px;
+}
 
   input[type=submit] {
     width: 80%;
@@ -143,12 +154,12 @@ input[type=text], input[type=password] {
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
+  .app {
+    background-position:left center;
+    padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+    margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                  /* offset horizontal: half of image width and text area width */
+  }
 }
 
 .event {
