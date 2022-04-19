@@ -34,17 +34,66 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="homePage.css">
+        <link rel="stylesheet" href="confirmationPage.css">
         <title>Postmastr</title>
     </head>
     <body>
-        <h1>POSTMASTR</h1>
+        <img src="../img/red.svg">
+        <button id="home" onclick="goHome()">&lt;</button>
+            <form id="confirmationForm" action="javascript:login()" method="POST">
+                <div class="input">
+                    <label for="name">Recipient Name:</label>
+                    <input id="name" name="name" type="text">
+                </div>
+                <div class="input">
+                    <label for="box-num">Box Number:</label>
+                    <input id="box-num" name="box-num" type="number">
+                </div>
+                <div class="input">
+                    <label for="track-num">Tracking Number:</label>
+                    <input id="track-num" name="track-num" type="number">
+                </div>
+                <div class="input">
+                    <label for="carrier">Package Carrier:</label>
+                    <input id="carrier" name="carrier" type="text">
+                </div>
+                <div class="input">
+                    <label for="name">Date Received:</label>
+                    <input id="date" name="date" type="date">
+                </div>
+                    <input id="submit" name="submit" type="submit" value="Notify Recipient">
+            </form>
+        <div id="buttons">
+            <button id="retake" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Retake Picture</button> 
+            <button id="report" onclick="reportPackage()">Report as Suspicious Package</button>
+        </div>
 
-
-
-        <!--<script src="cordova.js"></script>
-        <script src="js/index.js"></script>-->
     </body>
-    <script src="cordova.js"></script>
-    <script src="homePage.js"></script>
+
+
+    <script src="../cordova.js"></script>
+    <script src="../pictureFunctions/pictureFunctions.js"></script>
+    <script type="text/javascript">
+
+        window.onload = populateData();
+
+
+        function populateData() {
+            var resData = JSON.parse(localStorage.getItem("response"));
+            document.getElementById("name").value = resData.result.finalData.matches[0].name;
+            document.getElementById("box-num").value = resData.result.finalData.matches[0].boxNumber;
+            document.getElementById("carrier").value = resData.result.finalData.carrier;
+            document.getElementById("track-num").value = resData.result.finalData.trackNo;
+            document.getElementById("date").value = new Date().toISOString().slice(0, 10);
+        }
+
+        function goHome() {
+            window.location.href = "../homePage/homePage.html";
+        }
+
+        function reportPackage() {
+            window.location.href = "../susPackageForm/susPackageForm.html";
+        }
+
+    </script>
 </html>

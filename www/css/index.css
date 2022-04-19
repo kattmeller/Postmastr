@@ -20,15 +20,25 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+img {
+  width: 90%;
+  z-index: 1;
+  margin-top: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    user-select: text;
     background-color:#fffdfd;
     /*background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);*/
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
-    height:100vh;
+    height:100%;
+    overflow: hidden;
     margin:0px;
     padding:0px;
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
@@ -39,7 +49,8 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/images.png) no-repeat center top; /* 170px x 200px */
+    /* background:url(../img/red.svg) no-repeat center top; 170px x 200px */
+    /* background-size: 300px; */
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -51,11 +62,57 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+.signup {
+  position:absolute;             /* position in the center of the screen */
+  left:50%;
+  top:50%;
+  height:50px;                   /* text area height */
+  width:225px;                   /* text area width */
+  text-align:center;
+  margin:-115px 0px 0px -112px;
+}
+
+.scannedPackages {
+  position: absolute;
+  text-align:center;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
 h1 {
     font-size: 45px;
     font-weight: normal;
     margin-top: 25px;
     text-align: center;
+}
+
+h1.withBack { /* header on scanned packages screen adjusted to compensate for
+                back button */
+  margin-right: 44px; /* width of button + button margin */
+}
+
+button.back { /* back button on scanned packages screen */
+  background:url(../img/backIcon.png) no-repeat;
+  width:14px;
+  height:25px;
+  border:none;
+  background-color:Transparent;
+  outline:none;
+  margin-left: 30px;
+  margin-top: 60px;
+}
+
+button.scannedPackage {
+  display: block;
+  width: 100%;
+  white-space:normal;
+  background-color: transparent;
+  font-size: 16px;
+  border: none;
 }
 
 #signinhome {
@@ -69,18 +126,18 @@ h1 {
 }
 
 input[type=text], input[type=password] {
-    width: 100%;
-    padding: 8px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    text-align:center;
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    font-size: 20px;
-  }
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  text-align:center;
+  font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 20px;
+}
 
   input[type=submit] {
-    height: 70px;
-    width: 70%;
+    width: 80%;
+    height: 50px;
     position:relative;
     color: black;
     background-color: #FFFFFF;
@@ -91,18 +148,18 @@ input[type=text], input[type=password] {
     font-size:20px;
     font-weight: 300;
     margin:auto;
-    margin-top: 30px;
+    margin-top: 20px;
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
   }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
+  .app {
+    background-position:left center;
+    padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+    margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                  /* offset horizontal: half of image width and text area width */
+  }
 }
 
 .event {
@@ -135,13 +192,4 @@ input[type=text], input[type=password] {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
-}
-
-
-
-
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
-    }
 }

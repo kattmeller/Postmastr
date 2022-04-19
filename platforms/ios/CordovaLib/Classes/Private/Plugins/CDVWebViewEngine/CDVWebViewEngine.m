@@ -73,7 +73,7 @@
 {
     WKWebViewConfiguration* configuration = [[WKWebViewConfiguration alloc] init];
     [configuration.preferences setValue:@TRUE forKey:@"allowFileAccessFromFileURLs"];
-    [configuration setValue:@"TRUE" forKey:@"allowUniversalAccessFromFileURLs"];
+    [configuration setValue:@"TRUE" forKey:@"allowUniversalAccessFromFileURLs"];  
     configuration.processPool = [[CDVWebViewProcessPoolFactory sharedFactory] sharedProcessPool];
     if (settings == nil) {
         return configuration;
