@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 {
   "Packages": [
+=======
+data = '
+>>>>>>> b186d66ac2728d0aaf0212a28062cfd5e4a44093
     {
       "recipient": "Andrew Beard",
       "sender": "Michael Beard",
@@ -37,4 +41,8 @@
       "Date Received": "3/12/2022"
     },
   ]
+<<<<<<< HEAD
 }
+=======
+';
+>>>>>>> b186d66ac2728d0aaf0212a28062cfd5e4a44093
