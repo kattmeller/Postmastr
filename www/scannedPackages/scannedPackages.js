@@ -24,7 +24,7 @@ document.addEventListener('deviceready', function () {
         //     <p>Date Recieved: </br> ${data[i].dateRecieved}</p>
         //   </div>`;
           document.getElementById('packages-list').innerHTML += `
-          <button onclick="goPackageDetails()">
+          <button id="btn-package-${i}" class="scannedPackage" onclick="goPackageDetails()">
             <div class="package-info">
               <p>Recipient: </br> ${data[i].recipient}</p>
               <p>Sender: </br> ${data[i].sender}</p>
