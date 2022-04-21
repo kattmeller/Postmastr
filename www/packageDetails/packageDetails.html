@@ -35,12 +35,14 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="scannedPackages.css">
   </head>
   <body>
     <div class="header">
-      <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
+      <button id="package-details-back-button" class="back" onclick="goBack()"></button>
       <h1 class="withBack">Package Details</h1>
+    </div>
+    <div id="package-details">
+      <div id="details-loader" class="loader" />
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>

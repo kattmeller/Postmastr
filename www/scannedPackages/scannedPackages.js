@@ -24,7 +24,7 @@ document.addEventListener('deviceready', function () {
         //     <p>Date Recieved: </br> ${data[i].dateRecieved}</p>
         //   </div>`;
           document.getElementById('packages-list').innerHTML += `
-          <button id="btn-package-${i}" class="scannedPackage" onclick="goPackageDetails()">
+          <button id="btn-pckg-${i}" class="scannedPackage">
             <div class="package-info">
               <p>Recipient: </br> ${data[i].recipient}</p>
               <p>Sender: </br> ${data[i].sender}</p>
@@ -34,6 +34,13 @@ document.addEventListener('deviceready', function () {
           </button>
           `;
         };
+        for (let i = 0; i < data.length; i++) {
+          const btn = document.getElementById("btn-pckg-" + String(i));
+          btn.addEventListener("click", () => {
+            btn.style.backgroundColor = "#d3d3d3";
+            window.location.href = "../packageDetails/packageDetails.html";
+          });
+        }
       } else {
         document.getElementById('packages-list').innerHTML = `<p>No packages Found</p>`;;
       }
@@ -45,9 +52,6 @@ document.addEventListener('deviceready', function () {
   });
 });
 
-function goPackageDetails() {
-  window.location.href = "../packageDetails/packageDetails.html";
-}
 
 // return to homepage when back button pressed
 function goBack() {
