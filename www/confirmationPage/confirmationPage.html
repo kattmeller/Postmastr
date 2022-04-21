@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.6.0.min.js http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.4.1.js http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -40,7 +40,7 @@
     <body>
         <img src="../img/red.svg">
         <button id="home" onclick="goHome()">&lt;</button>
-            <form id="confirmationForm" action="javascript:login()" method="POST">
+            <form id="confirmationForm" action="javascript:sendEmail()" method="POST">
                 <div class="input">
                     <label for="name">Recipient Name:</label>
                     <input id="name" name="name" type="text">
@@ -77,6 +77,7 @@
 
     <script src="../cordova.js"></script>
     <script src="../pictureFunctions/pictureFunctions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
         window.onload = populateData();
@@ -100,5 +101,26 @@
             window.location.href = "../susPackageForm/susPackageForm.html";
         }
 
+        function sendEmail() {
+            $.ajax({
+                url: 'http://165.227.77.151:3000/package/input',
+                type: 'POST',
+                data: {
+                    "recipient": document.getElementById('name').value,
+                    "carrierName": document.getElementById('box-num').value,
+                    "trackingNumber": document.getElementById('track-num').value,
+                    "recipientMail": document.getElementById('email').value
+                },
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    alert("Email was sent!");
+                },
+                error: function(err) {
+                    console.log(err);
+                    alert("There was a problem sending the email.");
+                }
+            });
+        }
     </script>
 </html>

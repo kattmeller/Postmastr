@@ -90,6 +90,19 @@ h1 {
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
 }
 
+#directory button {
+    margin: auto;
+    height: 45%;
+    width: 100%;
+    background: #FFFFFF;
+    color: #000;
+    font-size: 50px;
+    border: solid black 3px;
+    border-radius: 10px;
+    font-weight: 300;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+}
+
 .logOutButton {
     color: #000;
     font-size:15px;
