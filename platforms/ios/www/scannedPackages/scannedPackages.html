@@ -42,13 +42,11 @@
       <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
       <h1 class="withBack">Scanned Packages</h1>
     </div>
-    <div id="scanned-packages-list">
+    <div id="packages-list">
       <div id="loader" class="loader" />
     </div>
   </body>
-  <script type="text/javascript">
-    function goBack() {
-      window.location.href="../homePage/homePage.html";
-    }
-  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+  <script src="../cordova.js"></script>
+  <script src="scannedPackages.js"></script>
 </html>
