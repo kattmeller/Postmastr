@@ -67,7 +67,7 @@ var image_data = new FormData();
 image_data.append('image', imageURI);
 
 $.ajax({
-    url: 'http://165.227.77.151:3000/imageProcessing',
+    url: 'http://165.227.77.151:3000/imageProcessing?ocr=ocrspace',
     type: 'POST',
     data: image_data,
     contentType: false,
