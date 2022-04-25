@@ -103,6 +103,10 @@ h1 {
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
 }
 
+#directory button:nth-child(n+2) {
+  border-top: 0px;
+}
+
 .logOutButton {
     color: #000;
     font-size:15px;
@@ -157,7 +161,7 @@ h1 {
     100% {
         transform: rotate(360deg);
     }
-    } 
+    }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
