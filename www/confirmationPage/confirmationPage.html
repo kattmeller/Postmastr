@@ -89,9 +89,11 @@
             if (!resData.pdfUrl) {
               document.getElementById('viewLabel').style.display = "none";
             }
-            document.getElementById("name").value = resData.matches[0].name;
-            document.getElementById("box-num").value = resData.matches[0].boxNumber;
-            document.getElementById("email").value = resData.matches[0].email;
+            if (resData.matches[0]) {
+              document.getElementById("name").value = resData.matches[0].name;
+              document.getElementById("box-num").value = resData.matches[0].boxNumber;
+              document.getElementById("email").value = resData.matches[0].email;
+            }
             document.getElementById("carrier").value = resData.carrier;
             document.getElementById("track-num").value = resData.trackNo;
             document.getElementById("date").value = new Date().toISOString().slice(0, 10);
