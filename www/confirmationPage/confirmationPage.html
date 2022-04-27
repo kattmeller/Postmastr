@@ -45,6 +45,8 @@
                     <label for="name">Recipient Name:</label>
                     <input id="name" name="name" type="text">
                 </div>
+                <div class="name-list" id="name-list">
+                </div>
                 <div class="input">
                     <label for="email">Recipient Email:</label>
                     <input id="email" name="email" type="email">
@@ -81,21 +83,52 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
+        let resData;
+
         window.onload = populateData();
 
+        function popUserData(user) {
+          if (typeof user === 'string') {
+            user = JSON.parse(user);
+          }
+          document.getElementById("name").value = (user.name || "");
+          document.getElementById("box-num").value = (user.boxNumber || "");
+          document.getElementById("email").value = (user.email || "");
+          document.getElementById('name-list').style.display = "none";
+        }
+
+        function searchMatches(elem) {
+          if (elem.value !== "" && resData) {
+            let matches = resData.matches.filter((e) => e.name.includes(elem.value) || String(e.boxNumber).includes(elem.value) || e.email.includes(elem.value));
+            if (matches.length > 0) {
+              document.getElementById('name-list').style.display = "inherit";
+              document.getElementById('name-list').innerHTML = '';
+              matches.forEach((person) => {
+                let data = JSON.stringify(person);
+                document.getElementById('name-list').innerHTML += `<p onclick='popUserData(${data})' style='width: 100%'>Name: ${person.name}, Box Number: ${person.boxNumber}</p>`;
+              });
+            } else {
+              document.getElementById('name-list').innerHTML = "<p>No matches found</p>";
+            }
+          } else {
+            document.getElementById('name-list').style.display = "none";
+          }
+        }
 
         function populateData() {
-            var resData = JSON.parse(localStorage.getItem("response")).result.finalData;
+            resData = JSON.parse(localStorage.getItem("response")).result.finalData
             if (!resData.pdfUrl) {
               document.getElementById('viewLabel').style.display = "none";
             }
-            if (resData.matches[0]) {
-              document.getElementById("name").value = resData.matches[0].name;
-              document.getElementById("box-num").value = resData.matches[0].boxNumber;
-              document.getElementById("email").value = resData.matches[0].email;
+            if (resData.matches.length > 1) {
+              document.getElementById('name').addEventListener('keyup', function () {
+                searchMatches(document.getElementById('name'));
+              }, false);
+            } else if (resData.matches[0]) {
+              popUserData(resData.matches[0]);
             }
-            document.getElementById("carrier").value = resData.carrier;
-            document.getElementById("track-num").value = resData.trackNo;
+            document.getElementById("carrier").value = (resData.carrier || "");
+            document.getElementById("track-num").value = (resData.trackNo || "");
             document.getElementById("date").value = new Date().toISOString().slice(0, 10);
         }
 

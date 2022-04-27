@@ -26,6 +26,23 @@ body {
     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
+.name-list {
+  position: absolute;
+  top: 200px;
+  left: 10vw;
+  width: 80vw;
+  background-color: white;
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+.name-list p {
+  text-align: center;
+  margin: 0;
+  padding: 1em;
+}
+.name-list p:last-child {
+  border-bottom: 1px solid;
+}
 h1 {
     font-size:25px;
     font-weight:normal;
