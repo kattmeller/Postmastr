@@ -19,39 +19,28 @@ function goScannedPackages() {
 
 // Called when a photo is successfully retrieved
 function onPhotoDataSuccess(imageData) {
-// Uncomment to view the base64-encoded image data
-    console.log("  "+imageData);
+  var image_data = new FormData();
+  console.log(imageData);
+  image_data.append('image', imageData);
 
-    window.location.href = "../confirmationPage/confirmationPage.html";
-//   var decodedImg = new buffer.Buffer(imageData, 'base64');
-//   var blob = new Blob(decodedImg, {type: 'image/jpeg'});
-
-//   var fd = new FormData();
-//   fd.append('image', blob);
-//   $.ajax({
-//    url: 'http://165.227.77.151:3000/imageProcessing',
-//    type: 'POST',
-//    data: fd,
-//    // xhrFields: {responseType: "blob"},
-//    contentType: false,
-//    processData: false,
-//    success: function(response){
-//      console.log('image uploaded and form submitted');
-//   }
-// });
-
-// // Get image handle
-// //
-// var smallImage = document.getElementById('smallImage');
-
-// // Unhide image elements
-// //
-// smallImage.style.display = 'block';
-
-// // Show the captured photo
-// // The inline CSS rules are used to resize the image
-// //
-// smallImage.src = "data:image/jpeg;base64," + imageData;
+  $.ajax({
+      url: 'http://165.227.77.151:3000/imageProcessing?ocr=ocrspace',
+      type: 'POST',
+      data: image_data,
+      contentType: false,
+      processData: false,
+      success: function (res) {
+          var data = JSON.stringify(res);
+          console.log(data);
+          localStorage.setItem("response", data);
+          window.location.href = "../confirmationPage/confirmationPage.html";
+      },
+      error: function(err) {
+        console.log(err);
+        alert("Couldnt send image to server");
+      //   window.location.href = "../confirmationPage/confirmationPage.html";
+      }
+  });
 }
 
 // Called when a photo is successfully retrieved
@@ -102,6 +91,7 @@ $.ajax({
 function capturePhoto() {
 // Take picture using device camera and retrieve image as base64-encoded string
 navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+    correctOrientation: true,
     destinationType: destinationType.DATA_URL });
 }
 
