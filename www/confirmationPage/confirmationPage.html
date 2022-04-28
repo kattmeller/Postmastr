@@ -34,6 +34,7 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="../css/index.css">
         <link rel="stylesheet" href="confirmationPage.css">
         <title>Postmastr</title>
     </head>
@@ -101,7 +102,7 @@
           if (elem.value !== "" && resData) {
             let matches = resData.matches.filter((e) => e.name.includes(elem.value) || String(e.boxNumber).includes(elem.value) || e.email.includes(elem.value));
             if (matches.length > 0) {
-              document.getElementById('name-list').style.display = "inherit";
+              document.getElementById('name-list').style.display = "grid";
               document.getElementById('name-list').innerHTML = '';
               matches.forEach((person) => {
                 let data = JSON.stringify(person);

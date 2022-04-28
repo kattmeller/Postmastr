@@ -41,14 +41,6 @@ img {
     margin-right: 25%;
     margin-bottom: 15px;
 }
-#home {
-    position: absolute;
-    left: 0px;
-    top: 60px;
-    font-size: 25px;
-    background: none;
-    color: black;
-}
 #confirmationForm {
     display: flex;
     flex-direction: column;
@@ -122,6 +114,6 @@ border-top-width: 1px;
     align-items: center;
 }
 #pdf {
-  height: auto; 
+  height: auto;
   width: 120%;
 }

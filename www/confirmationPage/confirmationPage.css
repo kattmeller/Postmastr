@@ -32,15 +32,15 @@ body {
   left: 10vw;
   width: 80vw;
   background-color: white;
-  border-left: 1px solid;
-  border-right: 1px solid;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  display: grid;
+  color: black;
 }
 .name-list p {
   text-align: center;
   margin: 0;
-  padding: 1em;
-}
-.name-list p:last-child {
+  padding: 0.75em 0;
   border-bottom: 1px solid;
 }
 h1 {
@@ -58,14 +58,6 @@ img {
     margin-right: 25%;
     margin-bottom: 15px;
 }
-#home {
-    position: absolute;
-    left: 0px;
-    top: 60px;
-    font-size: 25px;
-    background: none;
-    color: black;
-}
 #confirmationForm {
     display: flex;
     flex-direction: column;
@@ -77,9 +69,13 @@ img {
     flex-direction: column;
 }
 #confirmationForm input {
-    height: 30px;
+    height: 45px;
     font-size: 18px;
     margin-top: 7px;
+    background-color: transparent;
+    color: black;
+    text-align: left;
+    padding: 0em 0.25em;
 }
 #confirmationForm label {
     font-size: 20px;
@@ -118,6 +114,8 @@ border-top-width: 1px;
     background: rgb(0, 184, 0);
     color: black;
     margin: auto;
+    text-align: center;
+    -webkit-appearance: none;
     /* margin: auto;
     margin-top: 20px;
     height: 40px;
