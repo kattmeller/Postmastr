@@ -20,25 +20,6 @@ function goScannedPackages() {
 // Called when a photo is successfully retrieved
 function onPhotoDataSuccess(imageData) {
 // Uncomment to view the base64-encoded image data
-<<<<<<< HEAD
-// console.log("  "+imageData);
-  var decodedImg = new buffer.Buffer(imageData, 'base64');
-  var blob = new Blob(decodedImg, {type: 'image/jpeg'});
-
-  var fd = new FormData();
-  fd.append('image', blob);
-  $.ajax({
-   url: 'http://165.227.77.151:3000/imageProcessing',
-   type: 'POST',
-   data: fd,
-   // xhrFields: {responseType: "blob"},
-   contentType: false,
-   processData: false,
-   success: function(response){
-     console.log('image uploaded and form submitted');
-  }
-});
-=======
     console.log("  "+imageData);
 
     window.location.href = "../confirmationPage/confirmationPage.html";
@@ -58,7 +39,6 @@ function onPhotoDataSuccess(imageData) {
 //      console.log('image uploaded and form submitted');
 //   }
 // });
->>>>>>> b5beaf928aa78a5fa46752194bdf5e80d55cc709
 
 // // Get image handle
 // //
@@ -101,11 +81,7 @@ $.ajax({
     error: function(err) {
       console.log(err);
       alert("Couldnt send image to server");
-<<<<<<< HEAD
-      window.location.href = "../confirmationPage/confirmationPage.html";
-=======
     //   window.location.href = "../confirmationPage/confirmationPage.html";
->>>>>>> b5beaf928aa78a5fa46752194bdf5e80d55cc709
     }
 });
 

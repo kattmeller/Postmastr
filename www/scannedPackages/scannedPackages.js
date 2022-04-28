@@ -27,7 +27,6 @@ document.addEventListener('deviceready', function () {
           <button id="btn-pckg-${i}" class="scannedPackage">
             <div class="package-info">
               <p>Recipient: </br> ${data[i].recipient}</p>
-              <p>Sender: </br> ${data[i].sender}</p>
               <p>Tracking Number: </br> ${data[i].trackingNumber}</p>
               <p>Date Recieved: </br> ${data[i].dateRecieved}</p>
             </div>

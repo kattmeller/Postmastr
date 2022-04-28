@@ -72,15 +72,12 @@ body {
   margin:-115px 0px 0px -112px;
 }
 
-<<<<<<< HEAD
-=======
 .scannedPackages {
   position: absolute;
   text-align:center;
   width: 100%;
 }
 
->>>>>>> b5beaf928aa78a5fa46752194bdf5e80d55cc709
 .header {
   display: flex;
   flex-direction: row;
