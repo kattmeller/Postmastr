@@ -58,7 +58,7 @@ function onPhotoDataSuccess(imageData) {
 //
 function onPhotoURISuccess(imageURI) {
 // Uncomment to view the image file URI
- console.log("IMAGE PATH: "+imageURI);
+//  console.log("IMAGE PATH: "+imageURI);
 // Get image handle
 //
 // var largeImage = document.getElementById('largeImage');
