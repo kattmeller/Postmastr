@@ -1,26 +1,26 @@
 
-/*function cameraTakePicture() { 
-    navigator.camera.getPicture(onSuccess, onFail, {  
-       quality: 50, 
-       destinationType: Camera.DestinationType.DATA_URL 
-    });  
-    
-    function onSuccess(imageData) { 
-       var image = document.getElementById('myImage'); 
-       image.src = "data:image/jpeg;base64," + imageData; 
-    }  
-    
-    function onFail(message) { 
-       alert('Failed because: ' + message); 
-    } 
+/*function cameraTakePicture() {
+    navigator.camera.getPicture(onSuccess, onFail, {
+       quality: 50,
+       destinationType: Camera.DestinationType.DATA_URL
+    });
+
+    function onSuccess(imageData) {
+       var image = document.getElementById('myImage');
+       image.src = "data:image/jpeg;base64," + imageData;
+    }
+
+    function onFail(message) {
+       alert('Failed because: ' + message);
+    }
  }*/
 
  document.addEventListener("deviceready", onDeviceReady, false);
  function onDeviceReady() {
      console.log(navigator.camera);
  }
- 
- 
+
+
 function openCamera() {
     //var options = setOptions(Camera.PictureSourceType.CAMERA);
     //alert('I made it past options');
@@ -89,7 +89,7 @@ var pictureSource;   // picture source
     }
 
 
-    // Called when a photo is successfully retrieved  
+    // Called when a photo is successfully retrieved
     function onPhotoDataSuccess(imageData) {
       // Uncomment to view the base64-encoded image data
        console.log("  "+imageData);

@@ -70,9 +70,7 @@
             passwordRepeat: $("#psw-repeat").val()
       };
 
-      if (formData.password != formData.passwordRepeat) { //compare passwords
-        alert('Passwords must match');
-      } else {
+      if (formData.password == formData.passwordRepeat) {
         $.ajax({
             url: "https://post-mastr-mvp.vercel.app/api/user",
             type: 'POST',
@@ -87,16 +85,14 @@
               window.location.href = "../index.html";
             },
             error: function(err) {
-            console.log("oof");
-            alert("Unable to sign up.");
+              console.log("oof");
+              alert("Unable to sign up.");
             }
         });
         window.location.href = '../index.html'
-      }
-
-      function loginResults() {
-          console.log("Im done");
+      } else {
+        alert ("Passwords must match");
       }
     }
   </script>
-<html>
+</html>

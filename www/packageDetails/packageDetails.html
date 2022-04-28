@@ -18,34 +18,39 @@
     under the License.
 -->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <!--
-    Customize this policy to fit your own app's needs. For more guidance, see:
-        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-    Some notes:
-        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-            * Enable inline JS: add 'unsafe-inline' to default-src
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="../css/index.css">
-  </head>
-  <body>
-    <div class="header">
-      <button id="package-details-back-button" class="back" onclick="goBack()"></button>
-      <h1 class="withBack">Package Details</h1>
-    </div>
-    <div id="package-details">
-      <div id="details-loader" class="loader" />
-    </div>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-  <script src="../cordova.js"></script>
-  <script src="packageDetails.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.6.0.min.js http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="../css/index.css">
+        <title>Postmastr</title>
+    </head>
+    <body>
+      <div class="header">
+        <button id="scanned-packages-back-button" class="back" onclick="goBack()"></button>
+        <h1 class="withBack">#000000</h1>
+      </div>
+
+
+
+        <!--<script src="cordova.js"></script>
+        <script src="js/index.js"></script>-->
+    </body>
+    <script type=text/javascript>
+      function goBack() {
+        window.location.href="../scannedPackages/scannedPackages.html";
+      }
+    </script>
 </html>

@@ -40,8 +40,9 @@
     <body>
         <h1>POSTMASTR</h1>
         <div id="directory">
+            <button id="back-button" onclick="goHome()">Log Out</button>
             <button id="scan-button" onclick="capturePhoto()">Scan<br>Packages</button>
-            <button>See<br>Scan<br>History</button>
+            <button id="scan-history-button" onclick="goScannedPackages()">See<br>Scan<br>History</button>
         </div>
     </body>
 
@@ -55,12 +56,19 @@
 
         // Cordova is ready
         function onDeviceReady() {
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
+          pictureSource=navigator.camera.PictureSourceType;
+          destinationType=navigator.camera.DestinationType;
         }
 
+        function goHome() {
+          window.location.href="../index.html";
+        }
 
-        // Called when a photo is successfully retrieved  
+        function goScannedPackages() {
+          window.location.href="../scannedPackages/scannedPackages.html";
+        }
+
+        // Called when a photo is successfully retrieved
         function onPhotoDataSuccess(imageData) {
         // Uncomment to view the base64-encoded image data
         console.log("  "+imageData);

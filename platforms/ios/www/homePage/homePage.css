@@ -90,6 +90,19 @@ h1 {
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
 }
 
+#directory button {
+    margin: auto;
+    height: 45%;
+    width: 100%;
+    background: #FFFFFF;
+    color: #000;
+    font-size: 50px;
+    border: solid black 3px;
+    border-radius: 10px;
+    font-weight: 300;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+}
+
 .logOutButton {
     color: #000;
     font-size:15px;
@@ -106,6 +119,45 @@ h1 {
     margin-top:300px;
     padding:0px;
 }
+
+#loading {
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #838383;
+    opacity: 0.45;
+    height: 100%;
+    width: 100%;
+}
+#loading-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    opacity: 1;
+}
+.loader {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border: 15px solid #FFF;
+    border-bottom-color: #750b0b;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {

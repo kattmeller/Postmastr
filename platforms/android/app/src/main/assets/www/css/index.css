@@ -59,8 +59,18 @@ body {
   top:50%;
   height:50px;                   /* text area height */
   width:225px;                   /* text area width */
-  text-align:center; 
+  text-align:center;
   margin:-115px 0px 0px -112px;
+}
+
+.scannedPackages {
+  position: absolute;
+  text-align:center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
 }
 
 h1 {
@@ -68,6 +78,21 @@ h1 {
     font-weight: normal;
     margin-top: 25px;
     text-align: center;
+}
+
+h1.withBack {
+  margin-right: 44px; /* width of button + button margin */
+}
+
+button.back {
+  background:url(../img/backIcon.png) no-repeat;
+  width:14px;
+  height:25px;
+  border:none;
+  background-color:Transparent;
+  outline:none;
+  margin-left: 30px;
+  margin-top: 40px;
 }
 
 #signinhome {
@@ -149,5 +174,3 @@ input[type=text], input[type=password] {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-
-

@@ -1,0 +1,40 @@
+{
+  "Packages": [
+    {
+      "recipient": "Andrew Beard",
+      "sender": "Michael Beard",
+      "carrierName": "UPS",
+      "returnAddress": "16618 E CYPRESS ST",
+      "recipientAddress": "701 E ALOSTA AVE, UNIT 7067",
+      "trackingNumber": "58927915",
+      "emailsSent": 0,
+      "pickedUp": false,
+      "emailSent": false,
+      "Date Received": "3/29/2022"
+    },
+    {
+      "recipient": "Andrew Beard",
+      "sender": "Michelle Beard",
+      "carrierName": "UPS",
+      "returnAddress": "16618 E CYPRESS ST",
+      "recipientAddress": "701 E ALOSTA AVE, UNIT 7067",
+      "trackingNumber": "85738370",
+      "emailsSent": 0,
+      "pickedUp": false,
+      "emailSent": false,
+      "Date Received": "2/22/2022"
+    },
+    {
+      "recipient": "Andrew Beard",
+      "sender": "Michael Beard",
+      "carrierName": "UPS",
+      "returnAddress": "16618 E CYPRESS ST",
+      "recipientAddress": "701 E ALOSTA AVE, UNIT 7067",
+      "trackingNumber": "58708258",
+      "emailsSent": 0,
+      "pickedUp": false,
+      "emailSent": false,
+      "Date Received": "3/12/2022"
+    },
+  ]
+}

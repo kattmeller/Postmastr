@@ -41,13 +41,33 @@
         <img src="../img/red.svg">
         <div id="directory">
             <button id="back-button" onclick="goHome()">Log Out</button>
-            <button id="scan-button" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Scan<br>Packages</button>
+            <!-- <div id="scan-buttons"> -->
+                <button id="scan-button" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Scan<br>Packages</button>
+                <!-- <button id="scan-button" onclick="capturePhoto()">Scan<br>Packages</button> -->
+            <!-- </div>         -->
             <button id="scan-history-button" onclick="goScannedPackages()">See<br>Scan<br>History</button>
+<<<<<<< HEAD
+=======
+        </div>
+        <div id="loading" hidden>
+            <div id="loading-content">
+                <div class="loader"></div>
+            </div>
+>>>>>>> b5beaf928aa78a5fa46752194bdf5e80d55cc709
         </div>
     </body>
+    
 
     <script src="../cordova.js"></script>
     <script src="https://bundle.run/buffer@6.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script src="../pictureFunctions/pictureFunctions.js"></script>
+<<<<<<< HEAD
+=======
+    <script>
+        $( document ).ajaxStart(function() {
+            $("#loading").show();
+        });
+    </script>
+>>>>>>> b5beaf928aa78a5fa46752194bdf5e80d55cc709
 </html>
