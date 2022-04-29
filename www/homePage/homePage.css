@@ -34,6 +34,7 @@ body {
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     width:100%;
+    border: none;
 }
 
 img {
@@ -103,6 +104,10 @@ h1 {
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
 }
 
+#directory button:nth-child(n+2) {
+  border-top: 0px;
+}
+
 .logOutButton {
     color: #000;
     font-size:15px;
@@ -157,7 +162,7 @@ h1 {
     100% {
         transform: rotate(360deg);
     }
-    } 
+    }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {

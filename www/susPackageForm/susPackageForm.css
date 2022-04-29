@@ -20,14 +20,6 @@ img {
     margin-right: 25%;
     margin-bottom: 15px;
 }
-#home {
-    position: absolute;
-    left: 0px;
-    top: 60px;
-    font-size: 25px;
-    background: none;
-    color: black;
-}
 #susPackageForm {
     display: flex;
     flex-direction: column;
@@ -42,6 +34,8 @@ img {
     height: 30px;
     font-size: 18px;
     margin-top: 7px;
+    text-align: left;
+    padding: 0em 0.25em;
 }
 #susPackageForm label {
     font-size: 20px;
@@ -72,19 +66,22 @@ border-top-style: solid;
 border-top-width: 1px;
 }
 
-/* #susPackageForm #summary {
-    height: 400px;
-    overflow-wrap: normal;
-} */
+#susPackageForm #summary {
+  background-color: transparent;
+  color: black;
+}
 #susPackageForm #submit {
     font-size: 20px;
     font-weight: 300;
     height: 35px;
     width: 80%;
     border: solid black 3px;
-    background: rgb(0, 184, 0);
+    background: rgb(255, 44, 44);
     color: black;
     margin: auto;
+    text-align: center;
+    -webkit-appearance: none;
+    margin-bottom: 20px;
     /* margin: auto;
     margin-top: 20px;
     height: 40px;
