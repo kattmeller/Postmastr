@@ -12,7 +12,7 @@ body {
     /* Padding to avoid the "unsafe" areas behind notches in the screen */
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     width:100%;
-    overflow: scroll;
+    overflow: hidden;
 }
 .app {
     /*background:url(../img/images.png) no-repeat center top;*/ /* 170px x 200px */
@@ -25,23 +25,6 @@ body {
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
-}
-.name-list {
-  position: absolute;
-  top: 200px;
-  left: 10vw;
-  width: 80vw;
-  background-color: white;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  display: grid;
-  color: black;
-}
-.name-list p {
-  text-align: center;
-  margin: 0;
-  padding: 0.75em 0;
-  border-bottom: 1px solid;
 }
 h1 {
     font-size:25px;
@@ -69,13 +52,9 @@ img {
     flex-direction: column;
 }
 #confirmationForm input {
-    height: 45px;
+    height: 30px;
     font-size: 18px;
     margin-top: 7px;
-    background-color: transparent;
-    color: black;
-    text-align: left;
-    padding: 0em 0.25em;
 }
 #confirmationForm label {
     font-size: 20px;
@@ -114,8 +93,6 @@ border-top-width: 1px;
     background: rgb(0, 184, 0);
     color: black;
     margin: auto;
-    text-align: center;
-    -webkit-appearance: none;
     /* margin: auto;
     margin-top: 20px;
     height: 40px;
@@ -135,45 +112,8 @@ border-top-width: 1px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 2vh;
 }
-/* .bottom-button {
-    margin: auto;
-    margin-top: 20px;
-    height: 40px;
-    width: 80%;
-    border: solid;
-    border-color: black;
-    border-width: 3px;
-    border-radius: 10px;
-    background: #FFF;
-    font-size:20px;
-    font-weight: 300;
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    color: black;
-} */
-#retake,
-#report,
-#viewLabel {
-    margin-top: 25px;
-    font-size: 20px;
-    font-weight: 300;
-    height: 35px;
-    width: 80%;
-    border: solid black 3px;
-    border-radius: 15px;
-    color: black;
-}
-#retake {
-    background: #FFF;
-}
-#report {
-    background: rgb(255, 44, 44);
-}
-#viewLabel {
-    background: rgb(104, 144, 251);
-}
-#populate {
-    position: absolute;
-    bottom: 20px;
+#pdf {
+  height: auto;
+  width: 120%;
 }

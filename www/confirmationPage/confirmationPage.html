@@ -32,8 +32,9 @@
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://code.jquery.com/jquery-3.4.1.js http://165.227.77.151:3000/ data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="../css/index.css">
         <link rel="stylesheet" href="confirmationPage.css">
         <title>Postmastr</title>
     </head>
@@ -45,6 +46,8 @@
                     <label for="name">Recipient Name:</label>
                     <input id="name" name="name" type="text">
                 </div>
+                <div class="name-list" id="name-list">
+                </div>
                 <div class="input">
                     <label for="email">Recipient Email:</label>
                     <input id="email" name="email" type="email">
@@ -55,7 +58,7 @@
                 </div>
                 <div class="input">
                     <label for="track-num">Tracking Number:</label>
-                    <input id="track-num" name="track-num" type="number">
+                    <input id="track-num" name="track-num" type="text">
                 </div>
                 <div class="input">
                     <label for="carrier">Package Carrier:</label>
@@ -68,8 +71,10 @@
                     <input id="submit" name="submit" type="submit" value="Notify Recipient">
             </form>
         <div id="buttons">
-            <button id="retake" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Retake Picture</button> 
+            <button id="retake" onclick="capturePhoto()">Retake Picture</button>
+            <!-- <button id="retake" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Retake Picture</button> -->
             <button id="report" onclick="reportPackage()">Report as Suspicious Package</button>
+            <button id="viewLabel" onclick="viewLabel()">View Shipping Label</button>
         </div>
 
     </body>
@@ -80,16 +85,52 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
+        let resData;
+
         window.onload = populateData();
 
+        function popUserData(user) {
+          if (typeof user === 'string') {
+            user = JSON.parse(user);
+          }
+          document.getElementById("name").value = (user.name || "");
+          document.getElementById("box-num").value = (user.boxNumber || "");
+          document.getElementById("email").value = (user.email || "");
+          document.getElementById('name-list').style.display = "none";
+        }
+
+        function searchMatches(elem) {
+          if (elem.value !== "" && resData) {
+            let matches = resData.matches.filter((e) => e.name.includes(elem.value) || String(e.boxNumber).includes(elem.value) || e.email.includes(elem.value));
+            if (matches.length > 0) {
+              document.getElementById('name-list').style.display = "grid";
+              document.getElementById('name-list').innerHTML = '';
+              matches.forEach((person) => {
+                let data = JSON.stringify(person);
+                document.getElementById('name-list').innerHTML += `<p onclick='popUserData(${data})' style='width: 100%'>Name: ${person.name}, Box Number: ${person.boxNumber}</p>`;
+              });
+            } else {
+              document.getElementById('name-list').innerHTML = "<p>No matches found</p>";
+            }
+          } else {
+            document.getElementById('name-list').style.display = "none";
+          }
+        }
 
         function populateData() {
-            var resData = JSON.parse(localStorage.getItem("response"));
-            document.getElementById("name").value = resData.result.finalData.matches[0].name;
-            document.getElementById("box-num").value = resData.result.finalData.matches[0].boxNumber;
-            document.getElementById("email").value = resData.result.finalData.matches[0].email;
-            document.getElementById("carrier").value = resData.result.finalData.carrier;
-            document.getElementById("track-num").value = resData.result.finalData.trackNo;
+            resData = JSON.parse(localStorage.getItem("response")).result.finalData
+            if (!resData.pdfUrl) {
+              document.getElementById('viewLabel').style.display = "none";
+            }
+            if (resData.matches.length > 1) {
+              document.getElementById('name').addEventListener('keyup', function () {
+                searchMatches(document.getElementById('name'));
+              }, false);
+            } else if (resData.matches[0]) {
+              popUserData(resData.matches[0]);
+            }
+            document.getElementById("carrier").value = (resData.carrier || "");
+            document.getElementById("track-num").value = (resData.trackNo || "");
             document.getElementById("date").value = new Date().toISOString().slice(0, 10);
         }
 
@@ -107,8 +148,8 @@
                 type: 'POST',
                 data: {
                     "recipient": document.getElementById('name').value,
-                    "carrierName": document.getElementById('box-num').value,
                     "trackingNumber": document.getElementById('track-num').value.toString(),
+                    "carrierName": document.getElementById('carrier').value,
                     "recipientMail": document.getElementById('email').value
                 },
                 dataType: "json",
@@ -121,6 +162,10 @@
                     alert("There was a problem sending the email.");
                 }
             });
+        }
+
+        function viewLabel() {
+            window.location.href = "../labelPage/labelPage.html";
         }
     </script>
 </html>
