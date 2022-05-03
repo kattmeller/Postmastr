@@ -142,9 +142,10 @@
             } else if (resData.matches[0]) {
               popUserData(resData.matches[0]);
             }
+            let d = new Date();
             document.getElementById("carrier").value = (resData.carrier || "");
             document.getElementById("track-num").value = (resData.trackNo || "");
-            document.getElementById("date").value = new Date().toISOString().slice(0, 10);
+            document.getElementById("date").value = `${d.getFullYear()}-${d.getMonth() > 8 ? d.getMonth() + 1 : `0${d.getMonth() + 1}`}-${d.getDate() > 8 ? d.getDate() : `0${d.getDate()}`}`;
         }
 
         function goHome() {
