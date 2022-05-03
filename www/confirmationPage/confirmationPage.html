@@ -76,7 +76,11 @@
             <button id="report" onclick="reportPackage()">Report as Suspicious Package</button>
             <button id="viewLabel" onclick="viewLabel()">View Shipping Label</button>
         </div>
-
+        <div id="loading" hidden>
+            <div id="loading-content">
+                <div class="loader"></div>
+            </div>
+        </div>
     </body>
 
 
@@ -86,6 +90,15 @@
     <script type="text/javascript">
 
         let resData;
+
+        if ($ && $("#loading")) {
+            $( document ).ajaxStart(function() {
+                $("#loading").show();
+            });
+            $( document ).ajaxStop(function () {
+              $("#loading").hide();
+            })
+        }
 
         window.onload = populateData();
 

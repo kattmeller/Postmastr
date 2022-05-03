@@ -61,8 +61,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script src="../pictureFunctions/pictureFunctions.js"></script>
     <script>
-        $( document ).ajaxStart(function() {
-            $("#loading").show();
-        });
+        if ($ && $("#loading")) {
+            $( document ).ajaxStart(function() {
+                $("#loading").show();
+            });
+        }
     </script>
 </html>
