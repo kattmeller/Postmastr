@@ -35,6 +35,13 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/index.css">
+    <style media="screen">
+      #loading {
+          position: absolute;
+          height: 100vh;
+          width: 100vw;
+      }
+    </style>
   </head>
   <body>
     <h1>Sign Up</h1>
@@ -61,10 +68,23 @@
         </form>
       </div>
     </div>
+    <div id="loading" hidden>
+        <div id="loading-content">
+            <div class="loader"></div>
+        </div>
+    </div>
   </body>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+  <script src="../js/index.js"></script>
   <script type="text/javascript">
+
+    if ($ && $("#loading")) {
+        $( document ).ajaxStart(function() {
+            $("#loading").show();
+        });
+    }
+
     function signup() {
 
       if (document.getElementById('sign-up-psw').value == document.getElementById('sign-up-psw-repeat').value) {

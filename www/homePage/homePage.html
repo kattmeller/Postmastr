@@ -43,8 +43,8 @@
         <div id="directory">
             <button id="back-button" onclick="goHome()">Log Out</button>
             <!-- <div id="scan-buttons"> -->
-                <!-- <button id="scan-button" onclick="capturePhoto()">Scan<br>Packages</button> -->
-                <button id="scan-button" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Scan<br>Packages</button>
+                <button id="scan-button" onclick="capturePhoto()">Scan<br>Packages</button>
+                <!-- <button id="scan-button" onclick="getPhoto(pictureSource.PHOTOLIBRARY)">Scan<br>Packages</button> -->
             <!-- </div>         -->
             <button id="scan-history-button" onclick="goScannedPackages()">See<br>Scan<br>History</button>
         </div>
@@ -61,8 +61,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
     <script src="../pictureFunctions/pictureFunctions.js"></script>
     <script>
-        $( document ).ajaxStart(function() {
-            $("#loading").show();
-        });
+        if ($ && $("#loading")) {
+            $( document ).ajaxStart(function() {
+                $("#loading").show();
+            });
+        }
     </script>
 </html>

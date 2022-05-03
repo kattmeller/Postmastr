@@ -39,6 +39,16 @@
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
         <script src="js/login.js"></script>
+        <script type="text/javascript">
+            if ($ && $("#loading")) {
+                $( document ).ajaxStart(function() {
+                    $("#loading").show();
+                });
+                $( document ).ajaxStop(function () {
+                  $("#loading").hide();
+                })
+            }
+        </script>
     </body>
 </html>
 

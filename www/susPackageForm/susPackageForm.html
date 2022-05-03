@@ -56,7 +56,7 @@
             </div>
             <div class="input">
                 <label for="track-num">Tracking Number:</label>
-                <input id="track-num" name="track-num" type="number">
+                <input id="track-num" name="track-num" type="text">
             </div>
             <div class="input">
                 <label for="carrier">Package Carrier:</label>
@@ -78,8 +78,17 @@
         </form>
 
         <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
-        <script src="../cordova.js"></script>
+        <script src="../js/index.js"></script>
         <script type="text/javascript">
+
+            if ($ && $("#loading")) {
+                $( document ).ajaxStart(function() {
+                    $("#loading").show();
+                });
+                $( document ).ajaxStop(function () {
+                  $("#loading").hide();
+                })
+            }
 
             window.onload = populateData();
 
@@ -121,4 +130,9 @@
         }
         </script>
 
+        <div id="loading" hidden>
+            <div id="loading-content">
+                <div class="loader"></div>
+            </div>
+        </div>
     </body>
