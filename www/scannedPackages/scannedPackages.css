@@ -33,6 +33,8 @@ button.scannedPackage {
   height: 25px;
   animation: spin 1s linear infinite;
   margin: auto;
+  display: block;
+  box-sizing: initial;
 }
 
 @keyframes spin {
